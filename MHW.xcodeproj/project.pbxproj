@@ -20,7 +20,6 @@
 		405076F8207CD5030004651B /* OrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076F7207CD5030004651B /* OrderList.swift */; };
 		405076FA207CD5130004651B /* Gem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076F9207CD5130004651B /* Gem.swift */; };
 		405076FE207CD5340004651B /* CurrentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076FD207CD5340004651B /* CurrentStatus.swift */; };
-		40507700207CD68F0004651B /* TestList.json in Resources */ = {isa = PBXBuildFile; fileRef = 405076FF207CD68F0004651B /* TestList.json */; };
 		40507702207D794F0004651B /* AddGemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40507701207D794F0004651B /* AddGemsViewController.swift */; };
 		4093B9D820807A0B00C52B25 /* SavedArray+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D220807A0B00C52B25 /* SavedArray+CoreDataClass.swift */; };
 		4093B9D920807A0B00C52B25 /* SavedArray+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D320807A0B00C52B25 /* SavedArray+CoreDataProperties.swift */; };
@@ -48,7 +47,6 @@
 		405076F7207CD5030004651B /* OrderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderList.swift; sourceTree = "<group>"; };
 		405076F9207CD5130004651B /* Gem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gem.swift; sourceTree = "<group>"; };
 		405076FD207CD5340004651B /* CurrentStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentStatus.swift; sourceTree = "<group>"; };
-		405076FF207CD68F0004651B /* TestList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TestList.json; sourceTree = "<group>"; };
 		40507701207D794F0004651B /* AddGemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGemsViewController.swift; sourceTree = "<group>"; };
 		4093B9D220807A0B00C52B25 /* SavedArray+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedArray+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4093B9D320807A0B00C52B25 /* SavedArray+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedArray+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -90,12 +88,6 @@
 		405076CE207CB52E0004651B /* MHW */ = {
 			isa = PBXGroup;
 			children = (
-				4093B9D220807A0B00C52B25 /* SavedArray+CoreDataClass.swift */,
-				4093B9D320807A0B00C52B25 /* SavedArray+CoreDataProperties.swift */,
-				4093B9D420807A0B00C52B25 /* GemList+CoreDataClass.swift */,
-				4093B9D520807A0B00C52B25 /* GemList+CoreDataProperties.swift */,
-				4093B9D620807A0B00C52B25 /* Order+CoreDataClass.swift */,
-				4093B9D720807A0B00C52B25 /* Order+CoreDataProperties.swift */,
 				405076ED207CD3EC0004651B /* AppDelegate */,
 				405076EC207CD3EB0004651B /* Model */,
 				405076EE207CD4310004651B /* View */,
@@ -109,10 +101,10 @@
 		405076E9207CD3E80004651B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4093B9DE20808C7200C52B25 /* CoreDataModels */,
 				409E9B08207D8EC30079BD20 /* MHW.xcdatamodeld */,
 				405076DE207CB5300004651B /* Info.plist */,
 				405076E6207CD30A0004651B /* UIViewController+RoundShadowView.swift */,
-				405076FF207CD68F0004651B /* TestList.json */,
 				409E9B13207D903A0079BD20 /* PersistenceService.swift */,
 			);
 			path = "Supporting Files";
@@ -164,6 +156,19 @@
 				405076E4207CD2590004651B /* BorderedButton.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4093B9DE20808C7200C52B25 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				4093B9D220807A0B00C52B25 /* SavedArray+CoreDataClass.swift */,
+				4093B9D320807A0B00C52B25 /* SavedArray+CoreDataProperties.swift */,
+				4093B9D420807A0B00C52B25 /* GemList+CoreDataClass.swift */,
+				4093B9D520807A0B00C52B25 /* GemList+CoreDataProperties.swift */,
+				4093B9D620807A0B00C52B25 /* Order+CoreDataClass.swift */,
+				4093B9D720807A0B00C52B25 /* Order+CoreDataProperties.swift */,
+			);
+			path = CoreDataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,7 +230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				405076DD207CB5300004651B /* LaunchScreen.storyboard in Resources */,
-				40507700207CD68F0004651B /* TestList.json in Resources */,
 				405076DA207CB5300004651B /* Assets.xcassets in Resources */,
 				405076D5207CB52E0004651B /* Main.storyboard in Resources */,
 			);
