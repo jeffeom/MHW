@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GemList" representedClassName="GemList" syncable="YES">
+        <attribute name="firstGem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="secondGem" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thirdGem" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Order" representedClassName="Order" syncable="YES">
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="SavedArray" representedClassName="SavedArray" syncable="YES">
+        <attribute name="currentRow" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="gemLists" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="GemList" syncable="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Order" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="GemList" positionX="-1584" positionY="4995" width="128" height="88"/>
+        <element name="Order" positionX="-1325" positionY="5004" width="128" height="58"/>
+        <element name="SavedArray" positionX="-1451" positionY="5175" width="128" height="88"/>
+    </elements>
+</model>
