@@ -377,7 +377,21 @@
                     <view key="view" contentMode="scaleToFill" id="CXi-6T-xuH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N2g-bY-rwc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="N2g-bY-rwc" firstAttribute="trailing" secondItem="3VY-nu-0O7" secondAttribute="trailing" id="1h9-fA-bz3"/>
+                            <constraint firstItem="N2g-bY-rwc" firstAttribute="leading" secondItem="3VY-nu-0O7" secondAttribute="leading" id="FCP-Od-vzx"/>
+                            <constraint firstItem="N2g-bY-rwc" firstAttribute="top" secondItem="3VY-nu-0O7" secondAttribute="top" id="Om1-mL-WPT"/>
+                            <constraint firstAttribute="bottom" secondItem="N2g-bY-rwc" secondAttribute="bottom" id="a4n-wL-vMz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3VY-nu-0O7"/>
                     </view>
                     <navigationItem key="navigationItem" title="Help" id="5On-pS-6dN"/>
