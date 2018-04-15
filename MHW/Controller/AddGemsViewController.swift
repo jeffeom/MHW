@@ -21,9 +21,16 @@ class AddGemsViewController: UIViewController {
   @IBOutlet weak var secondGemButton: UIButton!
   @IBOutlet weak var thirdGemButton: UIButton!
   
+  static let identifier = "addGemsVC"
+  
   var gemsArray: [String] = []
   var alphabetDict: [String: [String]] = [:]
   var sortedKeysInDict: [String] = []
+  
+  var indexPathSelected: IndexPath?
+  
+  var editMode = false
+  var savedArray = SavedArray(context: PersistenceService.context)
   
   var currentGemSelected = 0 {
     didSet {
@@ -90,9 +97,17 @@ extension AddGemsViewController {
     gemList.secondGem = secondGemButton.titleLabel?.text
     gemList.thirdGem = thirdGemButton.titleLabel?.text
     let previousVC = navigationController?.viewControllers.first as! MeldingListTableViewController
-    previousVC.gemListToAdd = gemList
-    PersistenceService.saveContext()
-    navigationController?.popToViewController(previousVC, animated: true)
+    if editMode {
+      guard let section = indexPathSelected?.section else { return }
+      previousVC.gemToReplace = gemList
+      previousVC.gemEditSection = section
+      PersistenceService.saveContext()
+      navigationController?.popToViewController(previousVC, animated: true)
+    }else {
+      previousVC.gemListToAdd = gemList
+      PersistenceService.saveContext()
+      navigationController?.popToViewController(previousVC, animated: true)
+    }
   }
 }
 

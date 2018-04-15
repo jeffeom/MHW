@@ -22,6 +22,7 @@ class PopupSetupViewController: UIViewController {
   @IBOutlet weak var cancelButton: UIButton!
   
   weak var delegate: CellPopupDelegate?
+  var indexPathSelected: IndexPath?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -62,6 +63,16 @@ class PopupSetupViewController: UIViewController {
   @IBAction func pressed2(_ sender: UIButton) {
     delegate?.pressed2()
     dismiss(animated: true, completion: nil)
+  }
+  
+  @IBAction func pressedToEditRow(_ sender: UIButton) {
+    guard let navController = self.presentingViewController as? UINavigationController else { return }
+    dismiss(animated: true, completion: {
+      let addGemsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: AddGemsViewController.identifier) as! AddGemsViewController
+      addGemsVC.editMode = true
+      addGemsVC.indexPathSelected = self.indexPathSelected
+      navController.pushViewController(addGemsVC, animated: true)
+    })
   }
   
   @IBAction func pressedToSetAsCurrentRow(_ sender: UIButton) {

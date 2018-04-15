@@ -15,6 +15,8 @@ class MeldingListTableViewController: UIViewController {
   var gemLists: [GemList] = []
   var orderLists: [OrderList] = []
   var gemListToAdd: GemList?
+  var gemToReplace: GemList?
+  var gemEditSection: Int?
   var savedArray = SavedArray(context: PersistenceService.context)
   var selectedIndexPath: IndexPath?
 
@@ -70,6 +72,12 @@ class MeldingListTableViewController: UIViewController {
         self.currentStatus = CurrentStatus(currentRow: 0, currentOrderList: .order1_1)
         savedArray.currentRow = 0
       }
+      PersistenceService.saveContext()
+      meldingListCollectionView.reloadData()
+    }else if let gemToReplace = gemToReplace, let gemEditSection = gemEditSection {
+      gemLists.remove(at: gemEditSection)
+      gemLists.insert(gemToReplace, at: gemEditSection)
+      savedArray.replaceGemLists(at: gemEditSection, with: gemToReplace)
       PersistenceService.saveContext()
       meldingListCollectionView.reloadData()
     }
@@ -236,35 +244,35 @@ extension MeldingListTableViewController: UICollectionViewDelegate, UICollection
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MeldingCell.identifier, for: indexPath) as! MeldingCell
     switch indexPath.item {
     case 0:
-      cell.gemLabel.text = gemLists[indexPath.section].firstGem
+      cell.gemLabel.text = gemLists[indexPath.section].firstGem?.components(separatedBy: " Jewel").first
     case 1:
-      cell.gemLabel.text = gemLists[indexPath.section].secondGem
+      cell.gemLabel.text = gemLists[indexPath.section].secondGem?.components(separatedBy: " Jewel").first
     case 2:
-      cell.gemLabel.text = gemLists[indexPath.section].thirdGem
+      cell.gemLabel.text = gemLists[indexPath.section].thirdGem?.components(separatedBy: " Jewel").first
     default:
       break
     }
     return cell
   }
   
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    let cell = collectionView.cellForItem(at: indexPath) as! MeldingCell
-    if cell.cellIsSelected {
-      cell.isSelected = false
-      cell.cellIsSelected = false
-    }else {
-      cell.isSelected = true
-      cell.cellIsSelected = true
-    }
-    cell.layoutIfNeeded()
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-    let cell = collectionView.cellForItem(at: indexPath) as! MeldingCell
-    cell.isSelected = false
-    cell.cellIsSelected = false
-    cell.layoutIfNeeded()
-  }
+//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//    let cell = collectionView.cellForItem(at: indexPath) as! MeldingCell
+//    if cell.cellIsSelected {
+//      cell.isSelected = false
+//      cell.cellIsSelected = false
+//    }else {
+//      cell.isSelected = true
+//      cell.cellIsSelected = true
+//    }
+//    cell.layoutIfNeeded()
+//  }
+//  
+//  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+//    let cell = collectionView.cellForItem(at: indexPath) as! MeldingCell
+//    cell.isSelected = false
+//    cell.cellIsSelected = false
+//    cell.layoutIfNeeded()
+//  }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return CGSize(width: collectionView.bounds.width / 3 - 10, height: 50)
@@ -291,6 +299,7 @@ extension MeldingListTableViewController: MeldingTitleViewDelgate, CellPopupDele
     popupSetupVC.delegate = self
     modalPresentationStyle = .overCurrentContext
     selectedIndexPath = IndexPath(item: 0, section: rv.tag)
+    popupSetupVC.indexPathSelected = selectedIndexPath
     navigationController?.present(popupSetupVC, animated: true, completion: nil)
   }
   
