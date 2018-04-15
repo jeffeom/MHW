@@ -30,6 +30,8 @@
 		4093B9DD20807A0B00C52B25 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D720807A0B00C52B25 /* Order+CoreDataProperties.swift */; };
 		409E9B0A207D8EC30079BD20 /* MHW.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 409E9B08207D8EC30079BD20 /* MHW.xcdatamodeld */; };
 		409E9B14207D903A0079BD20 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E9B13207D903A0079BD20 /* PersistenceService.swift */; };
+		40E970702083F182002EFABE /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E9706F2083F182002EFABE /* HelpViewController.swift */; };
+		40E970722083F189002EFABE /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E970712083F189002EFABE /* ContactUsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		4093B9D720807A0B00C52B25 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		409E9B09207D8EC30079BD20 /* MHW.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MHW.xcdatamodel; sourceTree = "<group>"; };
 		409E9B13207D903A0079BD20 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		40E9706F2083F182002EFABE /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		40E970712083F189002EFABE /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				405076F5207CD4BD0004651B /* PopupSetupViewController.swift */,
 				40507701207D794F0004651B /* AddGemsViewController.swift */,
 				40551148208332A00040719B /* SettingsViewController.swift */,
+				40E9706F2083F182002EFABE /* HelpViewController.swift */,
+				40E970712083F189002EFABE /* ContactUsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -252,6 +258,7 @@
 				405076F8207CD5030004651B /* OrderList.swift in Sources */,
 				405076F2207CD48B0004651B /* MeldingTitleView.swift in Sources */,
 				405076D0207CB52E0004651B /* AppDelegate.swift in Sources */,
+				40E970702083F182002EFABE /* HelpViewController.swift in Sources */,
 				409E9B0A207D8EC30079BD20 /* MHW.xcdatamodeld in Sources */,
 				40507702207D794F0004651B /* AddGemsViewController.swift in Sources */,
 				405076F6207CD4BD0004651B /* PopupSetupViewController.swift in Sources */,
@@ -265,6 +272,7 @@
 				405076FA207CD5130004651B /* Gem.swift in Sources */,
 				4093B9DC20807A0B00C52B25 /* Order+CoreDataClass.swift in Sources */,
 				4093B9DA20807A0B00C52B25 /* GemList+CoreDataClass.swift in Sources */,
+				40E970722083F189002EFABE /* ContactUsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

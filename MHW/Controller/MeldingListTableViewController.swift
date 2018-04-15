@@ -14,11 +14,8 @@ class MeldingListTableViewController: UIViewController {
   var currentStatus: CurrentStatus = CurrentStatus(currentRow: nil, currentOrderList: .notSet)
   var gemLists: [GemList] = []
   var orderLists: [OrderList] = []
-  
   var gemListToAdd: GemList?
-  
   var savedArray = SavedArray(context: PersistenceService.context)
-  
   var selectedIndexPath: IndexPath?
   
   override func viewDidLoad() {
@@ -108,10 +105,11 @@ extension MeldingListTableViewController {
 }
 
 //MARK: IBActions
-extension MeldingListTableViewController {
+extension MeldingListTableViewController: ResetDelegate {
   @IBAction func pressedSettingButton(_ sender: UIBarButtonItem) {
-    deleteAllData()
-    meldingListCollectionView.reloadData()
+    let settingsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "settingsVC") as! SettingsViewController
+    settingsVC.delegate = self
+    navigationController?.pushViewController(settingsVC, animated: true)
   }
   
   @IBAction func pressedMeldSkip(_ sender: UIButton) {
@@ -200,6 +198,29 @@ extension MeldingListTableViewController {
       present(alertController, animated: true, completion: nil)
     }
   }
+  
+  func resetPressed() {
+    deleteAllData()
+    gemLists = []
+    orderLists = []
+    meldingListCollectionView.reloadData()
+  }
+  
+  func deleteAllData(){
+    let managedContext = PersistenceService.persistentContainer.viewContext
+    let deleteGemList = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "GemList"))
+    let deleteOrder = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "Order"))
+    let deleteSavedArray = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "SavedArray"))
+    do {
+      try managedContext.execute(deleteGemList)
+      try managedContext.execute(deleteOrder)
+      try managedContext.execute(deleteSavedArray)
+      managedContext.reset()
+    }
+    catch {
+      print(error)
+    }
+  }
 }
 
 //MARK: CVDelegate & Datasource
@@ -260,21 +281,6 @@ extension MeldingListTableViewController: UICollectionViewDelegate, UICollection
     }
     view.orderNumberLabel.text = orderLists[indexPath.section].text()
     return view
-  }
-  
-  func deleteAllData(){
-    let managedContext = PersistenceService.persistentContainer.viewContext
-    let deleteGemList = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "GemList"))
-    let deleteOrder = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "Order"))
-    let deleteSavedArray = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "SavedArray"))
-    do {
-      try managedContext.execute(deleteGemList)
-      try managedContext.execute(deleteOrder)
-      try managedContext.execute(deleteSavedArray)
-    }
-    catch {
-      print(error)
-    }
   }
 }
 
