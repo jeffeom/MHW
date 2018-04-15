@@ -39,6 +39,11 @@ class MeldingListTableViewController: UIViewController {
       self.gemLists = Array(gemLists) as! [GemList]
       let orders = Array(orderLists) as! [Order]
       self.orderLists =  orders.compactMap({ OrderList.from(string: $0.number!) })
+      if orderLists.count == 0 {
+        currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: .notSet)
+      }else {
+        currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: self.orderLists[Int(savedArray.currentRow)])
+      }
       meldingListCollectionView.reloadData()
     }catch {
       print(error.localizedDescription)
@@ -61,11 +66,12 @@ class MeldingListTableViewController: UIViewController {
         theOrder.number = orderLists.last?.text()
         savedArray.addToOrders(theOrder)
       }
-      PersistenceService.saveContext()
       self.gemListToAdd = nil
       if gemLists.count == 1 {
         self.currentStatus = CurrentStatus(currentRow: 0, currentOrderList: .order1_1)
+        savedArray.currentRow = 0
       }
+      PersistenceService.saveContext()
       meldingListCollectionView.reloadData()
     }
   }
@@ -108,9 +114,18 @@ extension MeldingListTableViewController {
   
   @IBAction func pressedMeldSkip(_ sender: UIButton) {
     if let currentRow = currentStatus.currentRow {
+      guard currentRow + 1 < orderLists.count else {
+        let alertController = UIAlertController(title: "Try again", message: "Need to add in more lists.", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+        return
+      }
       changeLabelToMelded()
       currentStatus.currentRow = currentRow + 1
       currentStatus.currentOrderList = .melded
+      savedArray.currentRow = Int64(currentStatus.currentRow ?? 0)
+      PersistenceService.saveContext()
     }else {
       let alertController = UIAlertController(title: "Try again", message: "Need to add in more lists.", preferredStyle: .alert)
       let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -121,6 +136,13 @@ extension MeldingListTableViewController {
   
   @IBAction func pressedQuestSkip(_ sender: UIButton) {
     if let currentRow = currentStatus.currentRow {
+      guard !orderLists.isEmpty else {
+        let alertController = UIAlertController(title: "Try again", message: "Need to add in more lists.", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
+        return
+      }
       currentStatus.currentOrderList = orderLists[currentRow]
       switch currentStatus.currentOrderList {
       case .order1_1, .order1_2:
@@ -148,6 +170,8 @@ extension MeldingListTableViewController {
       case .notSet:
         break
       }
+      savedArray.currentRow = Int64(currentStatus.currentRow ?? 0)
+      PersistenceService.saveContext()
       meldingListCollectionView.reloadData()
     }else {
       let alertController = UIAlertController(title: "Try again", message: "Need to add in more lists.", preferredStyle: .alert)

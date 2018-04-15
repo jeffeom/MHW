@@ -19,6 +19,7 @@ extension SavedArray {
 
     @NSManaged public var orders: NSOrderedSet?
     @NSManaged public var gemLists: NSOrderedSet?
+    @NSManaged public var currentRow: Int64
 
 }
 
