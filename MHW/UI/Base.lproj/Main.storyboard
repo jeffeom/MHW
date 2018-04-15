@@ -591,7 +591,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4b-gg-QgN" customClass="BorderedButton" customModule="MHW" customModuleProvider="target">
-                                                                <rect key="frame" x="72.5" y="178" width="89" height="33"/>
+                                                                <rect key="frame" x="11.5" y="178" width="211" height="33"/>
                                                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                                                 <state key="normal" title="Edit this row"/>
                                                                 <connections>
@@ -600,6 +600,7 @@
                                                             </button>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="e4b-gg-QgN" firstAttribute="width" secondItem="ZIx-Wj-xnH" secondAttribute="width" id="C0y-LA-10e"/>
                                                             <constraint firstItem="OUJ-iu-lgE" firstAttribute="width" secondItem="Tbb-Xb-Rcd" secondAttribute="width" multiplier="0.9" id="TOd-z1-xYS"/>
                                                             <constraint firstItem="ZIx-Wj-xnH" firstAttribute="width" secondItem="OUJ-iu-lgE" secondAttribute="width" id="eDD-MO-61K"/>
                                                             <constraint firstItem="H4k-SW-id7" firstAttribute="width" secondItem="Tbb-Xb-Rcd" secondAttribute="width" id="rEh-ZV-Bna"/>
