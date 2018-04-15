@@ -31,6 +31,7 @@
 		4093B9DD20807A0B00C52B25 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D720807A0B00C52B25 /* Order+CoreDataProperties.swift */; };
 		409E9B0A207D8EC30079BD20 /* MHW.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 409E9B08207D8EC30079BD20 /* MHW.xcdatamodeld */; };
 		409E9B14207D903A0079BD20 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E9B13207D903A0079BD20 /* PersistenceService.swift */; };
+		40BC1BF220840ED000617C76 /* gem.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1BF120840ECF00617C76 /* gem.json */; };
 		40E970702083F182002EFABE /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E9706F2083F182002EFABE /* HelpViewController.swift */; };
 		40E970722083F189002EFABE /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E970712083F189002EFABE /* ContactUsViewController.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		4093B9D720807A0B00C52B25 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		409E9B09207D8EC30079BD20 /* MHW.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MHW.xcdatamodel; sourceTree = "<group>"; };
 		409E9B13207D903A0079BD20 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		40BC1BF120840ECF00617C76 /* gem.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = gem.json; path = ../../gem.json; sourceTree = "<group>"; };
 		40E9706F2083F182002EFABE /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		40E970712083F189002EFABE /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		93B2F4D93A79D2B9870F1AAF /* Pods-MHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHW/Pods-MHW.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		405076E9207CD3E80004651B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				40BC1BF120840ECF00617C76 /* gem.json */,
 				4093B9DE20808C7200C52B25 /* CoreDataModels */,
 				409E9B08207D8EC30079BD20 /* MHW.xcdatamodeld */,
 				405076DE207CB5300004651B /* Info.plist */,
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				405076DD207CB5300004651B /* LaunchScreen.storyboard in Resources */,
+				40BC1BF220840ED000617C76 /* gem.json in Resources */,
 				405076DA207CB5300004651B /* Assets.xcassets in Resources */,
 				405076D5207CB52E0004651B /* Main.storyboard in Resources */,
 			);
@@ -498,7 +502,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U43R3UYB5A;
 				INFOPLIST_FILE = "$(SRCROOT)/MHW/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeffeom.MHW;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -514,7 +521,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U43R3UYB5A;
 				INFOPLIST_FILE = "$(SRCROOT)/MHW/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jeffeom.MHW;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

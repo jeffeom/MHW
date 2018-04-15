@@ -79,7 +79,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     case 1:
       if indexPath.item == 0 {
         //HELP
-        let destination: URL = URL(string: "https://github.com/jeffeom/MHW/blob/master/help.md")!
+        let destination: URL = URL(string: "https://github.com/jeffeom/MHW/blob/master/help_en.md")!
         let safari: SFSafariViewController = SFSafariViewController(url: destination)
         self.present(safari, animated: true, completion: nil)
       }else {

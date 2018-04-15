@@ -298,10 +298,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="p4o-Qc-Sa2">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" id="Dfc-IA-5eD">
-                            <connections>
-                                <action selector="pressedSettingButton:" destination="BYZ-38-t0r" id="fjg-df-vfA"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="2BL-Ss-pcD">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eMc-hf-Kyy">
+                                <rect key="frame" x="16" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="menu"/>
+                                <connections>
+                                    <action selector="pressedSettingButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tfi-hf-Bg6"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1W7-Bl-qY3">
                             <connections>
@@ -882,4 +887,7 @@
             <point key="canvasLocation" x="337" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="24" height="24"/>
+    </resources>
 </document>

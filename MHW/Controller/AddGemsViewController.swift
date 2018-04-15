@@ -21,6 +21,10 @@ class AddGemsViewController: UIViewController {
   @IBOutlet weak var secondGemButton: UIButton!
   @IBOutlet weak var thirdGemButton: UIButton!
   
+  var gemsArray: [String] = []
+  var alphabetDict: [String: [String]] = [:]
+  var sortedKeysInDict: [String] = []
+  
   var currentGemSelected = 0 {
     didSet {
       switch currentGemSelected {
@@ -47,6 +51,7 @@ class AddGemsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     appearance()
+    fetchGemssFromJSON()
     currentGemSelected = 0
   }
   
@@ -98,17 +103,55 @@ extension AddGemsViewController {
     createRoundShadowView(withShadowView: secondGemContentShadowView, andContentView: secondGemContentView, withCornerRadius: 8, withOpacity: 0.25)
     createRoundShadowView(withShadowView: thirdGemContentShadowView, andContentView: thirdGemContentView, withCornerRadius: 8, withOpacity: 0.25)
   }
+  
+  func fetchGemssFromJSON() {
+    if let path = Bundle.main.path(forResource: "gem", ofType: "json") {
+      do {
+        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+        let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)
+        if let jsonResult = jsonResult as? [String: AnyObject], let gemDictArray = jsonResult["gem"] as? [[String: AnyObject]] {
+          // do stuff
+          for aGemDict in gemDictArray {
+            let gem = aGemDict["name"] as! String
+            gemsArray.append(gem)
+            let initialLetter = String(gem.uppercased().first ?? " ".first!)
+            var letterArray = alphabetDict[initialLetter] ?? [String]()
+            letterArray.append(gem)
+            alphabetDict[initialLetter] = letterArray
+            sortedKeysInDict = Array(alphabetDict.keys).sorted(by: <)
+            gemListTableView.reloadData()
+          }
+        }
+      } catch {
+        print(error.localizedDescription)
+      }
+    }
+  }
 }
 
 //MARK: UITableViewDelegate & DataSource
 extension AddGemsViewController: UITableViewDelegate, UITableViewDataSource {
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return sortedKeysInDict.count
+  }
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 10
+    return alphabetDict[sortedKeysInDict[section]]?.count ?? 0
+  }
+  
+  func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    return sortedKeysInDict
+  }
+  
+  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return sortedKeysInDict[section]
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell(style: .default, reuseIdentifier: "gemCell")
-    cell.textLabel?.text = "A"
+    cell.textLabel?.font = UIFont(name: "OpenSans-Regular", size: 18)
+    cell.textLabel?.textColor = UIColor(red: 67/255, green: 61/255, blue: 63/255, alpha: 1.0)
+    cell.textLabel?.text = alphabetDict[sortedKeysInDict[indexPath.section]]?[indexPath.row]
     cell.selectionStyle = .none
     return cell
   }

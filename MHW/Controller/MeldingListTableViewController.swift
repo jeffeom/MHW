@@ -17,7 +17,7 @@ class MeldingListTableViewController: UIViewController {
   var gemListToAdd: GemList?
   var savedArray = SavedArray(context: PersistenceService.context)
   var selectedIndexPath: IndexPath?
-  
+
   override func viewDidLoad() {
     super.viewDidLoad()
     meldingListCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(-10, 0, -10, -10)
@@ -106,7 +106,7 @@ extension MeldingListTableViewController {
 
 //MARK: IBActions
 extension MeldingListTableViewController: ResetDelegate {
-  @IBAction func pressedSettingButton(_ sender: UIBarButtonItem) {
+  @IBAction func pressedSettingButton(_ sender: UIButton) {
     let settingsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "settingsVC") as! SettingsViewController
     settingsVC.delegate = self
     navigationController?.pushViewController(settingsVC, animated: true)
