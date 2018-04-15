@@ -4,18 +4,20 @@
         <attribute name="firstGem" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="secondGem" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thirdGem" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="savedArray" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SavedArray" inverseName="gemLists" inverseEntity="SavedArray" syncable="YES"/>
     </entity>
     <entity name="Order" representedClassName="Order" syncable="YES">
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="savedArray" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SavedArray" inverseName="orders" inverseEntity="SavedArray" syncable="YES"/>
     </entity>
     <entity name="SavedArray" representedClassName="SavedArray" syncable="YES">
         <attribute name="currentRow" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="gemLists" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="GemList" syncable="YES"/>
-        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Order" syncable="YES"/>
+        <relationship name="gemLists" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="GemList" inverseName="savedArray" inverseEntity="GemList" syncable="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Order" inverseName="savedArray" inverseEntity="Order" syncable="YES"/>
     </entity>
     <elements>
-        <element name="GemList" positionX="-1584" positionY="4995" width="128" height="88"/>
-        <element name="Order" positionX="-1325" positionY="5004" width="128" height="58"/>
-        <element name="SavedArray" positionX="-1451" positionY="5175" width="128" height="88"/>
+        <element name="GemList" positionX="-1638" positionY="5184" width="128" height="103"/>
+        <element name="Order" positionX="-1377" positionY="5292" width="128" height="73"/>
+        <element name="SavedArray" positionX="-1442" positionY="5166" width="128" height="88"/>
     </elements>
 </model>

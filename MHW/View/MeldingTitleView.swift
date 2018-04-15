@@ -8,13 +8,18 @@
 
 import UIKit
 
+protocol MeldingTitleViewDelgate: class {
+  func pressedSetting(rv: UICollectionReusableView)
+}
+
 class MeldingTitleView: UICollectionReusableView {
   @IBOutlet weak var orderNumberLabel: UILabel!
   @IBOutlet weak var currentRowLabel: UILabel!
   
   static let identifier = "meltingTitleView"
+  weak var delegate: MeldingTitleViewDelgate?
   
   @IBAction func pressedSetting(_ sender: UIButton) {
-    
+    delegate?.pressedSetting(rv: self)
   }
 }

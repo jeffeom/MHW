@@ -19,6 +19,8 @@ class MeldingListTableViewController: UIViewController {
   
   var savedArray = SavedArray(context: PersistenceService.context)
   
+  var selectedIndexPath: IndexPath?
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     meldingListCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(-10, 0, -10, -10)
@@ -155,16 +157,35 @@ extension MeldingListTableViewController {
         }
         currentStatus.currentRow = currentRow + 1
       case .order2_1:
-        guard currentRow + 2 < orderLists.count else {
+        if orderLists[currentRow - 1] == .order2_1 {
+          guard currentRow + 1 < orderLists.count else {
+            let alertController = UIAlertController(title: "Try again", message: "Need to add in more lists.", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            return
+          }
+          currentStatus.currentRow = currentRow + 1
+        }else {
+          guard currentRow + 2 < orderLists.count else {
+            let alertController = UIAlertController(title: "Try again", message: "Need to add in more lists.", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+            return
+          }
+          currentStatus.currentRow = currentRow + 2
+        }
+
+      case .order2_2:
+        guard currentRow + 1 < orderLists.count else {
           let alertController = UIAlertController(title: "Try again", message: "Need to add in more lists.", preferredStyle: .alert)
           let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
           alertController.addAction(defaultAction)
           present(alertController, animated: true, completion: nil)
           return
         }
-        currentStatus.currentRow = currentRow + 2
-      case .order2_2:
-        break
+        currentStatus.currentRow = currentRow + 1
       case .melded:
         break
       case .notSet:
@@ -231,6 +252,8 @@ extension MeldingListTableViewController: UICollectionViewDelegate, UICollection
   
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
     let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MeldingTitleView.identifier, for: indexPath) as! MeldingTitleView
+    view.delegate = self
+    view.tag = indexPath.section
     if let currentRow = currentStatus.currentRow {
       view.currentRowLabel.isHidden = currentRow != indexPath.section
     }else {
@@ -256,7 +279,111 @@ extension MeldingListTableViewController: UICollectionViewDelegate, UICollection
   }
 }
 
-
+//MARK: DelegatePatters
+extension MeldingListTableViewController: MeldingTitleViewDelgate, CellPopupDelegate {
+  func pressedSetting(rv: UICollectionReusableView) {
+    let popupSetupVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popupSetupVC") as! PopupSetupViewController
+    popupSetupVC.delegate = self
+    modalPresentationStyle = .overCurrentContext
+    selectedIndexPath = IndexPath(item: 0, section: rv.tag)
+    navigationController?.present(popupSetupVC, animated: true, completion: nil)
+  }
+  
+  func pressed1_1() {
+    guard let section = selectedIndexPath?.section else { return }
+    orderLists[section] = .order1_1
+    for i in 0..<section {
+      orderLists[i] = .notSet
+    }
+    if section + 1 < orderLists.count {
+      for j in (section + 1)..<orderLists.count {
+        if j != 0 {
+          if orderLists[j - 1] == .notSet || orderLists[j - 1] == .melded {
+            orderLists[j] = .notSet
+          }else {
+            orderLists[j] = orderLists[j - 1].next()!
+          }
+        }
+      }
+    }
+    var indexCount = 0
+    for anOrderList in orderLists {
+      savedArray.removeFromOrders(at: indexCount)
+      let anOrder = Order(context: PersistenceService.context)
+      anOrder.number = anOrderList.text()
+      savedArray.insertIntoOrders(anOrder, at: indexCount)
+      indexCount += 1
+    }
+    PersistenceService.saveContext()
+    meldingListCollectionView.reloadData()
+    selectedIndexPath = nil
+  }
+  
+  func pressed1_2() {
+    guard let section = selectedIndexPath?.section else { return }
+    orderLists[section] = .order1_2
+    for i in 0..<section {
+      orderLists[i] = .notSet
+    }
+    if section + 1 < orderLists.count {
+      for j in (section + 1)..<orderLists.count {
+        if j != 0 {
+          if orderLists[j - 1] == .notSet || orderLists[j - 1] == .melded {
+            orderLists[j] = .notSet
+          }else {
+            orderLists[j] = orderLists[j - 1].next()!
+          }
+        }
+      }
+    }
+    var indexCount = 0
+    for anOrderList in orderLists {
+      savedArray.removeFromOrders(at: indexCount)
+      let anOrder = Order(context: PersistenceService.context)
+      anOrder.number = anOrderList.text()
+      savedArray.insertIntoOrders(anOrder, at: indexCount)
+      indexCount += 1
+    }
+    PersistenceService.saveContext()
+    meldingListCollectionView.reloadData()
+    selectedIndexPath = nil
+  }
+  
+  func pressed2() {
+    guard let section = selectedIndexPath?.section else { return }
+    orderLists[section] = .order2_1
+    for i in 0..<section {
+      orderLists[i] = .notSet
+    }
+    if section + 1 < orderLists.count {
+      for j in (section + 1)..<orderLists.count {
+        if j != 0 {
+          if orderLists[j - 1] == .notSet || orderLists[j - 1] == .melded {
+            orderLists[j] = .notSet
+          }else {
+            orderLists[j] = orderLists[j - 1].next()!
+          }
+        }
+      }
+    }
+    var indexCount = 0
+    for anOrderList in orderLists {
+      savedArray.removeFromOrders(at: indexCount)
+      let anOrder = Order(context: PersistenceService.context)
+      anOrder.number = anOrderList.text()
+      savedArray.insertIntoOrders(anOrder, at: indexCount)
+      indexCount += 1
+    }
+    PersistenceService.saveContext()
+    meldingListCollectionView.reloadData()
+    selectedIndexPath = nil
+  }
+  
+  func pressedCurrentRow() {
+    
+    selectedIndexPath = nil
+  }
+}
 
 
 

@@ -8,14 +8,26 @@
 
 import UIKit
 
+protocol CellPopupDelegate: class {
+  func pressed1_1()
+  func pressed1_2()
+  func pressed2()
+  func pressedCurrentRow()
+}
+
 class PopupSetupViewController: UIViewController {
   @IBOutlet var superView: UIView!
   @IBOutlet weak var contentShadowView: UIView!
   @IBOutlet weak var contentView: UIView!
+  @IBOutlet weak var cancelButton: UIButton!
+  
+  weak var delegate: CellPopupDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
     createRoundShadowView(withShadowView: contentShadowView, andContentView: contentView, withCornerRadius: 8, withOpacity: 0.25)
+    cancelButton.layer.cornerRadius = 8
+    cancelButton.clipsToBounds = true
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -32,19 +44,28 @@ class PopupSetupViewController: UIViewController {
     superView.backgroundColor = UIColor.clear
   }
   
+  
+  @IBAction func pressedCancelButton(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
+  }
+  
   @IBAction func pressed1_1(_ sender: UIButton) {
+    delegate?.pressed1_1()
     dismiss(animated: true, completion: nil)
   }
   
   @IBAction func pressed1_2(_ sender: UIButton) {
+    delegate?.pressed1_2()
     dismiss(animated: true, completion: nil)
   }
   
   @IBAction func pressed2(_ sender: UIButton) {
+    delegate?.pressed2()
     dismiss(animated: true, completion: nil)
   }
   
   @IBAction func pressedToSetAsCurrentRow(_ sender: UIButton) {
+    delegate?.pressedCurrentRow()
     dismiss(animated: true, completion: nil)
   }
 }

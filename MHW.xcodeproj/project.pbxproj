@@ -12,7 +12,7 @@
 		405076D5207CB52E0004651B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405076D3207CB52E0004651B /* Main.storyboard */; };
 		405076DA207CB5300004651B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 405076D9207CB5300004651B /* Assets.xcassets */; };
 		405076DD207CB5300004651B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405076DB207CB5300004651B /* LaunchScreen.storyboard */; };
-		405076E5207CD2590004651B /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076E4207CD2590004651B /* BorderedButton.swift */; };
+		405076E5207CD2590004651B /* UIButton+BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076E4207CD2590004651B /* UIButton+BorderedButton.swift */; };
 		405076E7207CD30A0004651B /* UIViewController+RoundShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076E6207CD30A0004651B /* UIViewController+RoundShadowView.swift */; };
 		405076F0207CD46C0004651B /* MeldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076EF207CD46C0004651B /* MeldingCell.swift */; };
 		405076F2207CD48B0004651B /* MeldingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076F1207CD48B0004651B /* MeldingTitleView.swift */; };
@@ -39,7 +39,7 @@
 		405076D9207CB5300004651B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		405076DC207CB5300004651B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		405076DE207CB5300004651B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		405076E4207CD2590004651B /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		405076E4207CD2590004651B /* UIButton+BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+BorderedButton.swift"; sourceTree = "<group>"; };
 		405076E6207CD30A0004651B /* UIViewController+RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RoundShadowView.swift"; sourceTree = "<group>"; };
 		405076EF207CD46C0004651B /* MeldingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeldingCell.swift; sourceTree = "<group>"; };
 		405076F1207CD48B0004651B /* MeldingTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeldingTitleView.swift; sourceTree = "<group>"; };
@@ -105,6 +105,7 @@
 				409E9B08207D8EC30079BD20 /* MHW.xcdatamodeld */,
 				405076DE207CB5300004651B /* Info.plist */,
 				405076E6207CD30A0004651B /* UIViewController+RoundShadowView.swift */,
+				405076E4207CD2590004651B /* UIButton+BorderedButton.swift */,
 				409E9B13207D903A0079BD20 /* PersistenceService.swift */,
 			);
 			path = "Supporting Files";
@@ -153,7 +154,6 @@
 			children = (
 				405076F1207CD48B0004651B /* MeldingTitleView.swift */,
 				405076EF207CD46C0004651B /* MeldingCell.swift */,
-				405076E4207CD2590004651B /* BorderedButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,7 +256,7 @@
 				4093B9D920807A0B00C52B25 /* SavedArray+CoreDataProperties.swift in Sources */,
 				405076F0207CD46C0004651B /* MeldingCell.swift in Sources */,
 				409E9B14207D903A0079BD20 /* PersistenceService.swift in Sources */,
-				405076E5207CD2590004651B /* BorderedButton.swift in Sources */,
+				405076E5207CD2590004651B /* UIButton+BorderedButton.swift in Sources */,
 				4093B9DD20807A0B00C52B25 /* Order+CoreDataProperties.swift in Sources */,
 				405076FA207CD5130004651B /* Gem.swift in Sources */,
 				4093B9DC20807A0B00C52B25 /* Order+CoreDataClass.swift in Sources */,

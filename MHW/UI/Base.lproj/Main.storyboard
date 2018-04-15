@@ -150,7 +150,6 @@
                                                             <state key="normal" title="⚙︎"/>
                                                             <connections>
                                                                 <action selector="pressedSetting:" destination="yHJ-TM-V7T" eventType="touchUpInside" id="jUH-2T-mCT"/>
-                                                                <segue destination="ZZl-Sl-LwP" kind="presentation" modalPresentationStyle="overCurrentContext" id="WLP-10-14F"/>
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current row" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRT-P0-FRs">
@@ -223,6 +222,7 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="z4X-2T-ml7"/>
                                                                         </constraints>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                                         <state key="normal" title="MELD"/>
                                                                         <connections>
                                                                             <action selector="pressedMeldSkip:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lXU-uu-zsT"/>
@@ -240,6 +240,7 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="0Ee-Cn-MPS"/>
                                                                         </constraints>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
                                                                         <state key="normal" title="QUEST">
                                                                             <color key="titleColor" red="1" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </state>
@@ -319,86 +320,109 @@
         <!--Popup Setup View Controller-->
         <scene sceneID="SXS-MG-BS7">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="ZZl-Sl-LwP" customClass="PopupSetupViewController" customModule="MHW" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="popupSetupVC" modalPresentationStyle="overCurrentContext" id="ZZl-Sl-LwP" customClass="PopupSetupViewController" customModule="MHW" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lbo-oG-PuT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ki-CP-Ocd">
-                                <rect key="frame" x="37" y="233" width="300" height="201"/>
+                                <rect key="frame" x="37" y="195" width="300" height="278"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeI-Gz-tjX">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="201"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="278"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Tbb-Xb-Rcd">
-                                                <rect key="frame" x="10" y="9.5" width="280" height="181.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1XW-Xx-aB2">
+                                                <rect key="frame" x="20" y="20" width="260" height="238"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Order As:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4k-SW-id7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="27.5"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OUJ-iu-lgE">
-                                                        <rect key="frame" x="14" y="37.5" width="252" height="50"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Tbb-Xb-Rcd">
+                                                        <rect key="frame" x="13" y="0.0" width="234" height="168"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubj-ca-T8o" customClass="BorderedButton" customModule="MHW" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="77.5" height="40"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Order As:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4k-SW-id7">
+                                                                <rect key="frame" x="0.0" y="0.0" width="234" height="27.5"/>
                                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
-                                                                <state key="normal" title="1 - 1"/>
-                                                                <connections>
-                                                                    <action selector="pressed1_1:" destination="ZZl-Sl-LwP" eventType="touchUpInside" id="Wss-1x-ieD"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9m-0m-yCV" customClass="BorderedButton" customModule="MHW" customModuleProvider="target">
-                                                                <rect key="frame" x="87.5" y="0.0" width="77" height="40"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="OUJ-iu-lgE">
+                                                                <rect key="frame" x="11.5" y="37.5" width="211" height="50"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubj-ca-T8o" customClass="BorderedButton" customModule="MHW" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="5" width="57" height="40"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                                                        <state key="normal" title="1 - 1"/>
+                                                                        <connections>
+                                                                            <action selector="pressed1_1:" destination="ZZl-Sl-LwP" eventType="touchUpInside" id="Wss-1x-ieD"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9m-0m-yCV" customClass="BorderedButton" customModule="MHW" customModuleProvider="target">
+                                                                        <rect key="frame" x="77" y="5" width="57" height="40"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                                                        <state key="normal" title="1 - 2"/>
+                                                                        <connections>
+                                                                            <action selector="pressed1_2:" destination="ZZl-Sl-LwP" eventType="touchUpInside" id="48p-w7-BUr"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1j-E8-LX9" customClass="BorderedButton" customModule="MHW" customModuleProvider="target">
+                                                                        <rect key="frame" x="154" y="5" width="57" height="40"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                                                        <state key="normal" title="2"/>
+                                                                        <connections>
+                                                                            <action selector="pressed2:" destination="ZZl-Sl-LwP" eventType="touchUpInside" id="nxk-xd-VYD"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="Sug-uq-qMg"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcL-VD-Bmw">
+                                                                <rect key="frame" x="107.5" y="97.5" width="19.5" height="27.5"/>
                                                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
-                                                                <state key="normal" title="1 - 2"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIx-Wj-xnH" customClass="BorderedButton" customModule="MHW" customModuleProvider="target">
+                                                                <rect key="frame" x="11.5" y="135" width="211" height="33"/>
+                                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                                                <state key="normal" title="Set this as a Current Row"/>
                                                                 <connections>
-                                                                    <action selector="pressed1_2:" destination="ZZl-Sl-LwP" eventType="touchUpInside" id="48p-w7-BUr"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1j-E8-LX9" customClass="BorderedButton" customModule="MHW" customModuleProvider="target">
-                                                                <rect key="frame" x="174.5" y="0.0" width="77.5" height="40"/>
-                                                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
-                                                                <state key="normal" title="2"/>
-                                                                <connections>
-                                                                    <action selector="pressed2:" destination="ZZl-Sl-LwP" eventType="touchUpInside" id="nxk-xd-VYD"/>
+                                                                    <action selector="pressedToSetAsCurrentRow:" destination="ZZl-Sl-LwP" eventType="touchUpInside" id="4sK-xo-Ddd"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="Sug-uq-qMg"/>
+                                                            <constraint firstItem="OUJ-iu-lgE" firstAttribute="width" secondItem="Tbb-Xb-Rcd" secondAttribute="width" multiplier="0.9" id="TOd-z1-xYS"/>
+                                                            <constraint firstItem="ZIx-Wj-xnH" firstAttribute="width" secondItem="OUJ-iu-lgE" secondAttribute="width" id="eDD-MO-61K"/>
+                                                            <constraint firstItem="H4k-SW-id7" firstAttribute="width" secondItem="Tbb-Xb-Rcd" secondAttribute="width" id="rEh-ZV-Bna"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcL-VD-Bmw">
-                                                        <rect key="frame" x="125.5" y="97.5" width="29" height="41"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="30"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIx-Wj-xnH" customClass="BorderedButton" customModule="MHW" customModuleProvider="target">
-                                                        <rect key="frame" x="14" y="148.5" width="252" height="33"/>
-                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
-                                                        <state key="normal" title="Set this to Current Row"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAd-df-Bxz">
+                                                        <rect key="frame" x="0.0" y="188" width="260" height="50"/>
+                                                        <color key="backgroundColor" red="1" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="my3-u7-Qkt"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="17"/>
+                                                        <state key="normal" title="CANCEL">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
-                                                            <action selector="pressedToSetAsCurrentRow:" destination="ZZl-Sl-LwP" eventType="touchUpInside" id="4sK-xo-Ddd"/>
+                                                            <action selector="pressedCancelButton:" destination="ZZl-Sl-LwP" eventType="touchUpInside" id="wIL-RI-OpP"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="ZIx-Wj-xnH" firstAttribute="width" secondItem="Tbb-Xb-Rcd" secondAttribute="width" multiplier="0.9" id="5Ry-9P-pdk"/>
-                                                    <constraint firstItem="OUJ-iu-lgE" firstAttribute="width" secondItem="Tbb-Xb-Rcd" secondAttribute="width" multiplier="0.9" id="TOd-z1-xYS"/>
-                                                    <constraint firstItem="H4k-SW-id7" firstAttribute="width" secondItem="Tbb-Xb-Rcd" secondAttribute="width" id="rEh-ZV-Bna"/>
+                                                    <constraint firstItem="Tbb-Xb-Rcd" firstAttribute="width" secondItem="ZAd-df-Bxz" secondAttribute="width" multiplier="0.9" id="DyA-wM-Cdi"/>
+                                                    <constraint firstItem="ZAd-df-Bxz" firstAttribute="width" secondItem="1XW-Xx-aB2" secondAttribute="width" id="RQP-FB-Bhj"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Tbb-Xb-Rcd" secondAttribute="trailing" constant="10" id="btj-Ty-4LH"/>
-                                            <constraint firstAttribute="bottom" secondItem="Tbb-Xb-Rcd" secondAttribute="bottom" constant="10" id="fgm-ao-AFT"/>
-                                            <constraint firstItem="Tbb-Xb-Rcd" firstAttribute="leading" secondItem="XeI-Gz-tjX" secondAttribute="leading" constant="10" id="lVb-cs-wFI"/>
-                                            <constraint firstItem="Tbb-Xb-Rcd" firstAttribute="top" secondItem="XeI-Gz-tjX" secondAttribute="top" constant="10" id="vGl-4q-4So"/>
+                                            <constraint firstItem="1XW-Xx-aB2" firstAttribute="leading" secondItem="XeI-Gz-tjX" secondAttribute="leading" constant="20" id="WJ6-yb-Ts8"/>
+                                            <constraint firstAttribute="trailing" secondItem="1XW-Xx-aB2" secondAttribute="trailing" constant="20" id="elH-Ti-X80"/>
+                                            <constraint firstAttribute="bottom" secondItem="1XW-Xx-aB2" secondAttribute="bottom" constant="20" id="mQq-p4-gUD"/>
+                                            <constraint firstItem="1XW-Xx-aB2" firstAttribute="top" secondItem="XeI-Gz-tjX" secondAttribute="top" constant="20" id="r2V-Er-HNw"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -419,6 +443,7 @@
                         <viewLayoutGuide key="safeArea" id="1Zl-85-PvO"/>
                     </view>
                     <connections>
+                        <outlet property="cancelButton" destination="ZAd-df-Bxz" id="Spl-Ss-Wo1"/>
                         <outlet property="contentShadowView" destination="1Ki-CP-Ocd" id="HcZ-1t-uHE"/>
                         <outlet property="contentView" destination="XeI-Gz-tjX" id="Gva-vL-kpN"/>
                         <outlet property="superView" destination="lbo-oG-PuT" id="mR7-9f-uiF"/>
@@ -426,7 +451,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YpH-AH-ciQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079" y="907"/>
+            <point key="canvasLocation" x="1079" y="971"/>
         </scene>
         <!--Add Gems-->
         <scene sceneID="9UN-aU-opx">
