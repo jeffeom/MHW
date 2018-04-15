@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SafariServices
 
 protocol ResetDelegate: class {
   func resetPressed()
@@ -16,7 +17,7 @@ protocol ResetDelegate: class {
 class SettingsViewController: UIViewController {
   static let identifier = "settingsVC"
   var settingsArray = [["Reset Table"], ["Help", "Contact Us"], [""]]
-  var settingsTitleArray = ["Reset Table", "Contact", "Rate & Share", "Version"]
+  var settingsTitleArray = ["Reset Table", "Contact", "Version"]
   
   weak var delegate: ResetDelegate?
   
@@ -78,7 +79,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     case 1:
       if indexPath.item == 0 {
         //HELP
-        
+        let destination: URL = URL(string: "https://github.com/jeffeom/MHW/blob/master/help.md")!
+        let safari: SFSafariViewController = SFSafariViewController(url: destination)
+        self.present(safari, animated: true, completion: nil)
       }else {
         //CONTACT US
         let contactUsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: ContactUsViewController.identifier) as! ContactUsViewController
