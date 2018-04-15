@@ -65,7 +65,7 @@ class PopupSetupViewController: UIViewController {
   }
   
   @IBAction func pressedToSetAsCurrentRow(_ sender: UIButton) {
-    delegate?.pressedCurrentRow()
     dismiss(animated: true, completion: nil)
+    delegate?.pressedCurrentRow()
   }
 }

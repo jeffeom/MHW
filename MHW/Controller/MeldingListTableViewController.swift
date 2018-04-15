@@ -176,7 +176,6 @@ extension MeldingListTableViewController {
           }
           currentStatus.currentRow = currentRow + 2
         }
-
       case .order2_2:
         guard currentRow + 1 < orderLists.count else {
           let alertController = UIAlertController(title: "Try again", message: "Need to add in more lists.", preferredStyle: .alert)
@@ -380,32 +379,18 @@ extension MeldingListTableViewController: MeldingTitleViewDelgate, CellPopupDele
   }
   
   func pressedCurrentRow() {
-    
+    guard let section = selectedIndexPath?.section else { return }
+    if orderLists[section] == .melded || orderLists[section] == .notSet {
+      let alertController = UIAlertController(title: "Missing Order", message: "This row cannot be set as a current row.\n\nTry setting the order first, then try again.", preferredStyle: .alert)
+      let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+      alertController.addAction(defaultAction)
+      present(alertController, animated: true, completion: nil)
+    }else {
+      currentStatus = CurrentStatus(currentRow: section, currentOrderList: orderLists[section])
+      savedArray.currentRow = Int64(section)
+    }
+    PersistenceService.saveContext()
+    meldingListCollectionView.reloadData()
     selectedIndexPath = nil
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

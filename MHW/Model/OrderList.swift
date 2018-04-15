@@ -25,6 +25,19 @@ enum OrderList {
     }
   }
   
+  func previous() -> OrderList?{
+    switch self {
+    case .order1_1:
+      return .order2_2
+    case .order1_2:
+      return .order1_1
+    case .order2_1, .order2_2:
+      return .order1_2
+    case .melded, .notSet:
+      return nil
+    }
+  }
+  
   func text() -> String {
     switch self {
     case .order1_1:
