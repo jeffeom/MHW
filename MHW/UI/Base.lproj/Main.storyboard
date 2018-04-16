@@ -548,37 +548,6 @@
             </objects>
             <point key="canvasLocation" x="962" y="795"/>
         </scene>
-        <!--Help-->
-        <scene sceneID="IK3-dk-NEa">
-            <objects>
-                <viewController id="5gD-mG-Xd7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="CXi-6T-xuH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N2g-bY-rwc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="N2g-bY-rwc" firstAttribute="trailing" secondItem="3VY-nu-0O7" secondAttribute="trailing" id="1h9-fA-bz3"/>
-                            <constraint firstItem="N2g-bY-rwc" firstAttribute="leading" secondItem="3VY-nu-0O7" secondAttribute="leading" id="FCP-Od-vzx"/>
-                            <constraint firstItem="N2g-bY-rwc" firstAttribute="top" secondItem="3VY-nu-0O7" secondAttribute="top" id="Om1-mL-WPT"/>
-                            <constraint firstAttribute="bottom" secondItem="N2g-bY-rwc" secondAttribute="bottom" id="a4n-wL-vMz"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="3VY-nu-0O7"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Help" id="5On-pS-6dN"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xhK-0a-lqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="586" y="1490"/>
-        </scene>
         <!--Contact Us-->
         <scene sceneID="tT6-el-dAl">
             <objects>
@@ -600,7 +569,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="100"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PSE-hw-hZJ">
-                                                                <rect key="frame" x="30" y="18" width="295" height="65.5"/>
+                                                                <rect key="frame" x="30" y="15" width="295" height="71"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help &amp; Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKX-5n-gOe">
                                                                         <rect key="frame" x="0.0" y="0.0" width="295" height="25"/>
@@ -609,18 +578,18 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3KS-bv-hEo">
-                                                                        <rect key="frame" x="0.0" y="35" width="295" height="30.5"/>
+                                                                        <rect key="frame" x="0.0" y="35" width="295" height="36"/>
                                                                         <attributedString key="attributedText">
                                                                             <fragment content="If you have any questions or concerns about the app contact us at: ">
                                                                                 <attributes>
                                                                                     <color key="NSColor" red="0.2627450980392157" green="0.23921568627450979" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                    <font key="NSFont" size="13" name="OpenSans-Regular"/>
+                                                                                    <font key="NSFont" size="13" name="Avenir-Medium"/>
                                                                                 </attributes>
                                                                             </fragment>
                                                                             <fragment content="mhworldapp@gmail.com">
                                                                                 <attributes>
                                                                                     <color key="NSColor" red="0.0" green="0.64313725490196072" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                    <font key="NSFont" size="13" name="OpenSans-SemiBold"/>
+                                                                                    <font key="NSFont" size="13" name="Avenir-Heavy"/>
                                                                                 </attributes>
                                                                             </fragment>
                                                                         </attributedString>
@@ -670,12 +639,22 @@
                                     <constraint firstAttribute="trailing" secondItem="qlv-Yj-ab8" secondAttribute="trailing" id="XNI-8j-XHn"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pi1-3b-jhd">
+                                <rect key="frame" x="20" y="199" width="335" height="45.5"/>
+                                <string key="text">Please feel free to contact us at mhworldapp@gmail.com for bug reports or feature suggestions. Will be happy to reply back and solve it as soon as possible.</string>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="pi1-3b-jhd" firstAttribute="top" secondItem="aPn-0M-1CU" secondAttribute="bottom" constant="20" id="2Zv-Db-ILp"/>
+                            <constraint firstAttribute="trailing" secondItem="pi1-3b-jhd" secondAttribute="trailing" constant="20" id="IWh-Uu-uhR"/>
                             <constraint firstItem="aPn-0M-1CU" firstAttribute="top" secondItem="hUZ-bH-udn" secondAttribute="top" constant="15" id="NY8-sE-Z8s"/>
                             <constraint firstItem="hUZ-bH-udn" firstAttribute="trailing" secondItem="aPn-0M-1CU" secondAttribute="trailing" constant="10" id="XXn-m5-PiG"/>
                             <constraint firstItem="aPn-0M-1CU" firstAttribute="leading" secondItem="hUZ-bH-udn" secondAttribute="leading" constant="10" id="b83-ow-8qn"/>
+                            <constraint firstItem="pi1-3b-jhd" firstAttribute="leading" secondItem="hUZ-bH-udn" secondAttribute="leading" constant="20" id="cD0-75-XiV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hUZ-bH-udn"/>
                     </view>
@@ -684,12 +663,14 @@
                     <connections>
                         <outlet property="contentShadowView" destination="aPn-0M-1CU" id="B5E-dK-D8T"/>
                         <outlet property="contentView" destination="qlv-Yj-ab8" id="wk9-Lr-WW1"/>
+                        <outlet property="feelFreeText" destination="pi1-3b-jhd" id="laC-hW-KJe"/>
                         <outlet property="helpAttributedText" destination="3KS-bv-hEo" id="6zR-ce-UY3"/>
+                        <outlet property="helpTitleText" destination="mKX-5n-gOe" id="1Gx-76-HSM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="beX-vM-Yxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1318" y="1483"/>
+            <point key="canvasLocation" x="962" y="1575"/>
         </scene>
         <!--Popup Setup View Controller-->
         <scene sceneID="SXS-MG-BS7">

@@ -16,13 +16,14 @@ protocol ResetDelegate: class {
 
 class SettingsViewController: UIViewController {
   static let identifier = "settingsVC"
-  var settingsArray = [["Reset Table"], ["Help", "Contact Us"], [""]]
-  var settingsTitleArray = ["Reset Table", "Contact", "Version"]
+  var settingsArray = [["Reset Table".localized()], ["Help".localized(), "Contact Us".localized()], [""]]
+  var settingsTitleArray = ["Reset Table".localized(), "Contact".localized(), "Version".localized()]
   
   weak var delegate: ResetDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = "Settings".localized()
     if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
       settingsArray[2] = [version]
     }
@@ -58,12 +59,12 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     case 0:
       //RESET TABLE
       // the alert view
-      let alertController = UIAlertController(title: "Are you sure?", message: "By pressing delete button, it will delete every data in the table and cannot be recovered.", preferredStyle: .alert)
-      let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
+      let alertController = UIAlertController(title: "Are you sure?".localized(), message: "By pressing delete button, it will delete every data in the table and cannot be recovered.".localized(), preferredStyle: .alert)
+      let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
         alertController.dismiss(animated: true, completion: nil)
       })
-      let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
-        let alert = UIAlertController(title: "", message: "Successfully deleted all data", preferredStyle: .alert)
+      let deleteAction = UIAlertAction(title: "Delete".localized(), style: .destructive) { _ in
+        let alert = UIAlertController(title: "", message: "Successfully deleted all data".localized(), preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
         let when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when){
@@ -79,6 +80,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     case 1:
       if indexPath.item == 0 {
         //HELP
+        ///////////////
         let destination: URL = URL(string: "https://github.com/jeffeom/MHW/blob/master/help_en.md")!
         let safari: SFSafariViewController = SFSafariViewController(url: destination)
         self.present(safari, animated: true, completion: nil)

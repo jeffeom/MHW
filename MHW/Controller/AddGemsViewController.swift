@@ -57,6 +57,7 @@ class AddGemsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    title = "Add Gems".localized()
     appearance()
     fetchGemssFromJSON()
     currentGemSelected = 0
@@ -78,14 +79,14 @@ class AddGemsViewController: UIViewController {
 //MARK: IBAction
 extension AddGemsViewController {
   @IBAction func pressedResetButton(_ sender: UIButton) {
-    let alertController = UIAlertController(title: "Reset?", message: "Do you want to start from the beginning?", preferredStyle: .alert)
-    let resetAction = UIAlertAction(title: "Reset", style: .destructive) { (_) in
+    let alertController = UIAlertController(title: "Reset?".localized(), message: "Do you want to start from the beginning?".localized(), preferredStyle: .alert)
+    let resetAction = UIAlertAction(title: "Reset".localized(), style: .destructive) { (_) in
       print("reset")
       self.firstGemButton.setTitle("X", for: .normal)
       self.secondGemButton.setTitle("X", for: .normal)
       self.thirdGemButton.setTitle("X", for: .normal)
     }
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+    let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil)
     alertController.addAction(resetAction)
     alertController.addAction(cancelAction)
     present(alertController, animated: true, completion: nil)
@@ -120,7 +121,7 @@ extension AddGemsViewController {
   }
   
   func fetchGemssFromJSON() {
-    if let path = Bundle.main.path(forResource: "gem", ofType: "json") {
+    if let path = Bundle.main.path(forResource: "gem_en".localized(), ofType: "json") {
       do {
         let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
         let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableLeaves)

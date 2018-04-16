@@ -1,2 +1,52 @@
 
+"Add Gems" = "장식주 추가";
 
+"Are you sure?" = "확실합니요?";
+
+"By pressing delete button, it will delete every data in the table and cannot be recovered." = "삭제 버튼을 누르면 테이블의 모든 데이터가 삭제되어 복구 할 수 없습니다.";
+
+"Cancel" = "취소";
+
+"Contact" = "문의";
+
+"Contact Us" = "문의하기";
+
+"Delete" = "삭제";
+
+"Do you want to start from the beginning?" = "처음부터 다시 시작 하시겠습니까?";
+
+"Error" = "에러";
+
+"gem_en" = "gem_kr";
+
+"Help" = "도움말";
+
+"Help & Support" = "도움 및 지원";
+
+"MELDED" = "연금";
+
+"Missing Order" = "Order가 설정 되어있지 않습니다.";
+
+"Need to add in more lists." = "더 많은 장식주 리스트가 필요 합니다.";
+
+"OK" = "확인";
+
+"Please try again." = "다시 시도하십시오";
+
+"Questions about the app" = "어플관련 질문";
+
+"Reset" = "재시작";
+
+"Reset Table" = "테이블 재설정";
+
+"Reset?" = "재시작 하시겠습니까?";
+
+"Settings" = "설정";
+
+"Successfully deleted all data" = "모든 데이터를 삭제했습니다.";
+
+"This row cannot be set as a current row.\n\nTry setting the order first, then try again." = "현재 행으로 설정 할수 없습니다. Order을 먼저 설정 한 다음 다시 시도하십시오.";
+
+"Try again" = "다시 시도하십시오";
+
+"Version" = "버젼";
