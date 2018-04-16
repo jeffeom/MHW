@@ -1,0 +1,90 @@
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "1ux-Qa-boR"; */
+"1ux-Qa-boR.normalTitle" = "X";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "5Jp-9q-RRk"; */
+"5Jp-9q-RRk.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "Help"; ObjectID = "5On-pS-6dN"; */
+"5On-pS-6dN.title" = "Help";
+
+/* Class = "UIButton"; normalTitle = "⚙︎"; ObjectID = "9tH-O6-sYX"; */
+"9tH-O6-sYX.normalTitle" = "⚙︎";
+
+/* Class = "UILabel"; text = "x"; ObjectID = "B7V-lS-Zfy"; */
+"B7V-lS-Zfy.text" = "x";
+
+/* Class = "UILabel"; text = "Set Order As:"; ObjectID = "H4k-SW-id7"; */
+"H4k-SW-id7.text" = "Set Order As:";
+
+/* Class = "UIButton"; normalTitle = "MELD"; ObjectID = "HyT-cH-Z2C"; */
+"HyT-cH-Z2C.normalTitle" = "MELD";
+
+/* Class = "UIButton"; normalTitle = "RESET"; ObjectID = "Jyd-5x-Bgq"; */
+"Jyd-5x-Bgq.normalTitle" = "RESET";
+
+/* Class = "UIButton"; normalTitle = "2"; ObjectID = "N1j-E8-LX9"; */
+"N1j-E8-LX9.normalTitle" = "2";
+
+/* Class = "UILabel"; text = "Reset Table"; ObjectID = "NFx-Ei-RN0"; */
+"NFx-Ei-RN0.text" = "Reset Table";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "OIc-Vg-8Ex"; */
+"OIc-Vg-8Ex.title" = "Settings";
+
+/* Class = "UINavigationItem"; title = "Add Gems"; ObjectID = "PBw-Lj-372"; */
+"PBw-Lj-372.title" = "Add Gems";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "QL0-fB-zsg"; */
+"QL0-fB-zsg.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "1 - 1"; ObjectID = "Ubj-ca-T8o"; */
+"Ubj-ca-T8o.normalTitle" = "1 - 1";
+
+/* Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "ZAd-df-Bxz"; */
+"ZAd-df-Bxz.normalTitle" = "CANCEL";
+
+/* Class = "UIButton"; normalTitle = "Set this as a Current Row"; ObjectID = "ZIx-Wj-xnH"; */
+"ZIx-Wj-xnH.normalTitle" = "Set this as a Current Row";
+
+/* Class = "UINavigationItem"; title = "Contact Us"; ObjectID = "c9d-Wl-Sh0"; */
+"c9d-Wl-Sh0.title" = "Contact Us";
+
+/* Class = "UILabel"; text = "1 - 1"; ObjectID = "cP1-ua-S3w"; */
+"cP1-ua-S3w.text" = "1 - 1";
+
+/* Class = "UIButton"; normalTitle = "Edit this row"; ObjectID = "e4b-gg-QgN"; */
+"e4b-gg-QgN.normalTitle" = "Edit this row";
+
+/* Class = "UILabel"; text = "or"; ObjectID = "fcL-VD-Bmw"; */
+"fcL-VD-Bmw.text" = "or";
+
+/* Class = "UIButton"; normalTitle = "QUEST"; ObjectID = "hIn-Tb-uyk"; */
+"hIn-Tb-uyk.normalTitle" = "QUEST";
+
+/* Class = "UILabel"; text = "x"; ObjectID = "kOg-wa-pcm"; */
+"kOg-wa-pcm.text" = "x";
+
+/* Class = "UILabel"; text = "Help & Support"; ObjectID = "mKX-5n-gOe"; */
+"mKX-5n-gOe.text" = "Help & Support";
+
+/* Class = "UILabel"; text = "Current row"; ObjectID = "qRT-P0-FRs"; */
+"qRT-P0-FRs.text" = "Current row";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "qla-rS-N27"; */
+"qla-rS-N27.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "1 - 2"; ObjectID = "r9m-0m-yCV"; */
+"r9m-0m-yCV.normalTitle" = "1 - 2";
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "rAH-sN-IYZ"; */
+"rAH-sN-IYZ.normalTitle" = "X";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "s1y-f0-rFd"; */
+"s1y-f0-rFd.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "X"; ObjectID = "sHk-xb-ceB"; */
+"sHk-xb-ceB.normalTitle" = "X";
+
+/* Class = "UILabel"; text = "Skip Options"; ObjectID = "wde-2o-hpp"; */
+"wde-2o-hpp.text" = "Skip Options";
