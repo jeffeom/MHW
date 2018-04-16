@@ -59,8 +59,5 @@
 /* Class = "UILabel"; text = "Skip Options"; ObjectID = "wde-2o-hpp"; */
 "wde-2o-hpp.text" = "Skip 설정";
 
-/* Class = "UIButton"; normalTitle = "⚙︎"; ObjectID = "9tH-O6-sYX"; */
-"9tH-O6-sYX.normalTitle" = "";
-
 /* Class = "UILabel"; text = "Please feel free to contact us at mhworldapp@gmail.com for bug reports or feature suggestions. Will be happy to reply back and solve it as soon as possible."; ObjectID = "pi1-3b-jhd"; */
 "pi1-3b-jhd.text" = "";

@@ -138,8 +138,13 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     case 2:
       if indexPath.item == 0 {
         //HELP
-        ///////////////
-        let destination: URL = URL(string: "https://github.com/jeffeom/MHW/blob/master/help_en.md")!
+        let currentLang = UserDefaults.standard.array(forKey: "AppleLanguages")?.first as? String
+        var destination = URL(string: "https://github.com/jeffeom/MHW/blob/master/help_en.md")!
+        if (currentLang?.contains("ko") ?? false) {
+          destination = URL(string: "https://github.com/jeffeom/MHW/blob/master/help_ko.md")!
+        }else {
+          destination = URL(string: "https://github.com/jeffeom/MHW/blob/master/help_en.md")!
+        }
         let safari: SFSafariViewController = SFSafariViewController(url: destination)
         self.present(safari, animated: true, completion: nil)
       }else {

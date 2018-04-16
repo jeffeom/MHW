@@ -47,7 +47,7 @@ enum OrderList {
     case .order2_1, .order2_2:
       return "2"
     case .melded:
-      return "MELDED"
+      return "MELDED".localized()
     case .notSet:
       return "X"
     }
@@ -63,7 +63,7 @@ enum OrderList {
       return .order2_1
     case "2-2":
       return .order2_2
-    case "MELDED":
+    case "MELDED".localized():
       return .melded
     default:
       return .notSet
