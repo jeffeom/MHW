@@ -22,6 +22,7 @@ class AddGemsViewController: UIViewController {
   @IBOutlet weak var secondGemButton: UIButton!
   @IBOutlet weak var thirdGemButton: UIButton!
   @IBOutlet weak var bannerView: GADBannerView!
+  @IBOutlet weak var viewBottomConstraintForBanner: NSLayoutConstraint!
   
   static let identifier = "addGemsVC"
   let hangulSystem = YKHangul()
@@ -61,12 +62,27 @@ class AddGemsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Add Gems".localized()
-    bannerView.adUnitID = Key.adUnitID
-    bannerView.rootViewController = self
-    bannerView.load(GADRequest())
+    let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
+    if purchased {
+      bannerView.isHidden = true
+      viewBottomConstraintForBanner.constant = 0
+    }else {
+      bannerView.adUnitID = Key.adUnitID
+      bannerView.rootViewController = self
+      bannerView.load(GADRequest())
+    }
     appearance()
     fetchGemssFromJSON()
     currentGemSelected = 0
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
+    if purchased {
+      bannerView.isHidden = true
+      viewBottomConstraintForBanner.constant = 0
+    }
   }
   
   @IBAction func pressedFirstGem(_ sender: UIButton) {

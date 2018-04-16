@@ -14,6 +14,7 @@ import GoogleMobileAds
 class MeldingListTableViewController: UIViewController {
   @IBOutlet weak var meldingListCollectionView: UICollectionView!
   @IBOutlet weak var bannerView: GADBannerView!
+  @IBOutlet weak var viewBottomConstraintForBanner: NSLayoutConstraint!
   var currentStatus: CurrentStatus = CurrentStatus(currentRow: nil, currentOrderList: .notSet)
   var gemLists: [GemList] = []
   var orderLists: [OrderList] = []
@@ -25,9 +26,14 @@ class MeldingListTableViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    bannerView.adUnitID = Key.adUnitID
-    bannerView.rootViewController = self
-    bannerView.load(GADRequest())
+    let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
+    if purchased {
+      bannerView.isHidden = true
+    }else {
+      bannerView.adUnitID = Key.adUnitID
+      bannerView.rootViewController = self
+      bannerView.load(GADRequest())
+    }
     meldingListCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(-10, 0, -10, -10)
     meldingListCollectionView.reloadData()
     let savedArrayFetchRequest: NSFetchRequest<SavedArray> = SavedArray.fetchRequest()
@@ -41,17 +47,19 @@ class MeldingListTableViewController: UIViewController {
           PersistenceService.saveContext()
         }
       }
-      savedArray = savedArrays[0]
-      guard let gemLists = savedArray.gemLists, let orderLists = savedArray.orders else { return }
-      self.gemLists = Array(gemLists) as! [GemList]
-      let orders = Array(orderLists) as! [Order]
-      self.orderLists =  orders.compactMap({ OrderList.from(string: $0.number!) })
-      if orderLists.count == 0 {
-        currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: .notSet)
-      }else {
-        currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: self.orderLists[Int(savedArray.currentRow)])
+      if !savedArrays.isEmpty {
+        savedArray = savedArrays[0]
+        guard let gemLists = savedArray.gemLists, let orderLists = savedArray.orders else { return }
+        self.gemLists = Array(gemLists) as! [GemList]
+        let orders = Array(orderLists) as! [Order]
+        self.orderLists =  orders.compactMap({ OrderList.from(string: $0.number!) })
+        if orderLists.count == 0 {
+          currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: .notSet)
+        }else {
+          currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: self.orderLists[Int(savedArray.currentRow)])
+        }
+        meldingListCollectionView.reloadData()
       }
-      meldingListCollectionView.reloadData()
     }catch {
       print(error.localizedDescription)
     }
@@ -59,6 +67,11 @@ class MeldingListTableViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
+    let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
+    if purchased {
+      bannerView.isHidden = true
+      viewBottomConstraintForBanner.constant = 0
+    }
     if let gemListToAdd = gemListToAdd {
       gemLists.append(gemListToAdd)
       savedArray.addToGemLists(gemListToAdd)

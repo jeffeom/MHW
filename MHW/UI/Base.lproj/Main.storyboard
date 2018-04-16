@@ -451,6 +451,7 @@
                     <connections>
                         <outlet property="bannerView" destination="7Ja-iH-WlJ" id="60B-8y-H3W"/>
                         <outlet property="meldingListCollectionView" destination="iDj-yn-gnQ" id="D9A-gB-f1o"/>
+                        <outlet property="viewBottomConstraintForBanner" destination="6C9-ur-v3x" id="7ig-Vs-ZdZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -566,6 +567,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="bannerView" destination="maf-sG-NHF" id="kyf-mo-DuF"/>
+                        <outlet property="settingTableView" destination="ewb-hW-HKg" id="joh-fN-fVV"/>
+                        <outlet property="viewBottomConstraintForBanner" destination="wO9-Ms-KB1" id="t1V-3o-qi2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyG-Bd-zZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1260,6 +1263,7 @@
                         <outlet property="thirdGemButton" destination="sHk-xb-ceB" id="9xL-C7-BPX"/>
                         <outlet property="thirdGemContentShadowView" destination="Lpy-Kl-Ock" id="OH2-wk-mpx"/>
                         <outlet property="thirdGemContentView" destination="aOY-wJ-uns" id="4vP-hM-x1m"/>
+                        <outlet property="viewBottomConstraintForBanner" destination="BRq-Cs-h50" id="a5H-jz-87R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8zN-oc-QRm" userLabel="First Responder" sceneMemberID="firstResponder"/>

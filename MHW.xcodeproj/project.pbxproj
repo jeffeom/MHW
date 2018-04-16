@@ -36,6 +36,7 @@
 		40BC1C0D20843BAE00617C76 /* gem_kr.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1C0C20843BAE00617C76 /* gem_kr.json */; };
 		40BC1C0F20843C7900617C76 /* YKHangul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C0E20843C7900617C76 /* YKHangul.swift */; };
 		40BC1C1120843FC700617C76 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C1020843FC700617C76 /* Key.swift */; };
+		40BC1C13208443BC00617C76 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BC1C12208443BC00617C76 /* StoreKit.framework */; };
 		40E970722083F189002EFABE /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E970712083F189002EFABE /* ContactUsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,7 @@
 		40BC1C0C20843BAE00617C76 /* gem_kr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gem_kr.json; sourceTree = SOURCE_ROOT; };
 		40BC1C0E20843C7900617C76 /* YKHangul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YKHangul.swift; sourceTree = "<group>"; };
 		40BC1C1020843FC700617C76 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		40BC1C12208443BC00617C76 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		40E970712083F189002EFABE /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		93B2F4D93A79D2B9870F1AAF /* Pods-MHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHW/Pods-MHW.debug.xcconfig"; sourceTree = "<group>"; };
 		DCE9C4F121951F0F6EC0401B /* Pods-MHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHW/Pods-MHW.release.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DBBC1D7373B3584D2DEB6F7 /* Pods_MHW.framework in Frameworks */,
+				40BC1C13208443BC00617C76 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +97,7 @@
 		399FAA871BDCFE2A10D39DCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				40BC1C12208443BC00617C76 /* StoreKit.framework */,
 				159C99AD91E5308301DCF7ED /* Pods_MHW.framework */,
 			);
 			name = Frameworks;
@@ -255,6 +259,11 @@
 				TargetAttributes = {
 					405076CB207CB52E0004651B = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
