@@ -7,6 +7,7 @@ build/
 DerivedData/
 .DS_Store
 *.xcuserstate
+Key.swift
 
 ## Various settings
 *.pbxuser

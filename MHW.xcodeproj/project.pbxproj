@@ -35,6 +35,7 @@
 		40BC1BFF2084277200617C76 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1C012084277200617C76 /* Localizable.strings */; };
 		40BC1C0D20843BAE00617C76 /* gem_kr.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1C0C20843BAE00617C76 /* gem_kr.json */; };
 		40BC1C0F20843C7900617C76 /* YKHangul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C0E20843C7900617C76 /* YKHangul.swift */; };
+		40BC1C1120843FC700617C76 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C1020843FC700617C76 /* Key.swift */; };
 		40E970722083F189002EFABE /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E970712083F189002EFABE /* ContactUsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		40BC1C05208434F200617C76 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		40BC1C0C20843BAE00617C76 /* gem_kr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gem_kr.json; sourceTree = SOURCE_ROOT; };
 		40BC1C0E20843C7900617C76 /* YKHangul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YKHangul.swift; sourceTree = "<group>"; };
+		40BC1C1020843FC700617C76 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		40E970712083F189002EFABE /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		93B2F4D93A79D2B9870F1AAF /* Pods-MHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHW/Pods-MHW.debug.xcconfig"; sourceTree = "<group>"; };
 		DCE9C4F121951F0F6EC0401B /* Pods-MHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHW/Pods-MHW.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				409E9B13207D903A0079BD20 /* PersistenceService.swift */,
 				40BC1C012084277200617C76 /* Localizable.strings */,
 				40BC1C0E20843C7900617C76 /* YKHangul.swift */,
+				40BC1C1020843FC700617C76 /* Key.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				405076E5207CD2590004651B /* UIButton+BorderedButton.swift in Sources */,
 				40551149208332A00040719B /* SettingsViewController.swift in Sources */,
 				4093B9DD20807A0B00C52B25 /* Order+CoreDataProperties.swift in Sources */,
+				40BC1C1120843FC700617C76 /* Key.swift in Sources */,
 				405076FA207CD5130004651B /* Gem.swift in Sources */,
 				4093B9DC20807A0B00C52B25 /* Order+CoreDataClass.swift in Sources */,
 				4093B9DA20807A0B00C52B25 /* GemList+CoreDataClass.swift in Sources */,

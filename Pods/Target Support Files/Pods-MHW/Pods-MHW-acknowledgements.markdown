@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## Google-Mobile-Ads-SDK
+
+Copyright 2018 Google
+
 ## Localize-Swift
 
 Copyright (c) 2015 Roy Marmelstein (http://roysapps.com/)

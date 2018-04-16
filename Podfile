@@ -6,4 +6,5 @@ target 'MHW' do
   use_frameworks!
   # Pods for MHW
   pod 'Localize-Swift'
+  pod 'Google-Mobile-Ads-SDK'
 end
