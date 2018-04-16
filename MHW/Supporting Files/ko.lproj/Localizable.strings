@@ -35,6 +35,8 @@
 
 "Please try again." = "다시 시도하십시오";
 
+"Please wait..." = "잠시만 기다려주십시오 ...";
+
 "Purchase" = "구매";
 
 "Questions about the app" = "어플관련 질문";
@@ -64,5 +66,3 @@
 "Try again" = "다시 시도하십시오";
 
 "Version" = "버젼";
-
-"Please wait..." = "잠시만 기다려주십시오 ...";
