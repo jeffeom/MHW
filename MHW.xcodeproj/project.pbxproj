@@ -37,6 +37,8 @@
 		40BC1C0F20843C7900617C76 /* YKHangul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C0E20843C7900617C76 /* YKHangul.swift */; };
 		40BC1C1120843FC700617C76 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C1020843FC700617C76 /* Key.swift */; };
 		40BC1C13208443BC00617C76 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BC1C12208443BC00617C76 /* StoreKit.framework */; };
+		40BC1C1E208466A600617C76 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1C1D208466A600617C76 /* Info.plist */; };
+		40BC1C212084674A00617C76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1C1F2084674A00617C76 /* InfoPlist.strings */; };
 		40E970722083F189002EFABE /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E970712083F189002EFABE /* ContactUsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +50,6 @@
 		405076D4207CB52E0004651B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		405076D9207CB5300004651B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		405076DC207CB5300004651B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		405076DE207CB5300004651B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		405076E4207CD2590004651B /* UIButton+BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+BorderedButton.swift"; sourceTree = "<group>"; };
 		405076E6207CD30A0004651B /* UIViewController+RoundShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+RoundShadowView.swift"; sourceTree = "<group>"; };
 		405076EF207CD46C0004651B /* MeldingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeldingCell.swift; sourceTree = "<group>"; };
@@ -76,6 +77,10 @@
 		40BC1C0E20843C7900617C76 /* YKHangul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YKHangul.swift; sourceTree = "<group>"; };
 		40BC1C1020843FC700617C76 /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		40BC1C12208443BC00617C76 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		40BC1C1D208466A600617C76 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40BC1C202084674A00617C76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		40BC1C222084674E00617C76 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		40BC1C232084690100617C76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		40E970712083F189002EFABE /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		93B2F4D93A79D2B9870F1AAF /* Pods-MHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHW/Pods-MHW.debug.xcconfig"; sourceTree = "<group>"; };
 		DCE9C4F121951F0F6EC0401B /* Pods-MHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHW/Pods-MHW.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,15 +142,16 @@
 		405076E9207CD3E80004651B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				40BC1C1D208466A600617C76 /* Info.plist */,
 				40BC1BF120840ECF00617C76 /* gem_en.json */,
 				40BC1C0C20843BAE00617C76 /* gem_kr.json */,
 				4093B9DE20808C7200C52B25 /* CoreDataModels */,
 				409E9B08207D8EC30079BD20 /* MHW.xcdatamodeld */,
-				405076DE207CB5300004651B /* Info.plist */,
 				405076E6207CD30A0004651B /* UIViewController+RoundShadowView.swift */,
 				405076E4207CD2590004651B /* UIButton+BorderedButton.swift */,
 				409E9B13207D903A0079BD20 /* PersistenceService.swift */,
 				40BC1C012084277200617C76 /* Localizable.strings */,
+				40BC1C1F2084674A00617C76 /* InfoPlist.strings */,
 				40BC1C0E20843C7900617C76 /* YKHangul.swift */,
 				40BC1C1020843FC700617C76 /* Key.swift */,
 			);
@@ -292,11 +298,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				40BC1C0D20843BAE00617C76 /* gem_kr.json in Resources */,
+				40BC1C212084674A00617C76 /* InfoPlist.strings in Resources */,
 				40BC1BFF2084277200617C76 /* Localizable.strings in Resources */,
 				405076DD207CB5300004651B /* LaunchScreen.storyboard in Resources */,
 				40BC1BF220840ED000617C76 /* gem_en.json in Resources */,
 				405076DA207CB5300004651B /* Assets.xcassets in Resources */,
 				405076D5207CB52E0004651B /* Main.storyboard in Resources */,
+				40BC1C1E208466A600617C76 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +437,16 @@
 				40BC1C022084277600617C76 /* Base */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		40BC1C1F2084674A00617C76 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				40BC1C202084674A00617C76 /* Base */,
+				40BC1C222084674E00617C76 /* ko */,
+				40BC1C232084690100617C76 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

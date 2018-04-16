@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var bannerView: GADBannerView!
   @IBOutlet weak var viewBottomConstraintForBanner: NSLayoutConstraint!
   
-  var settingsArray = [["Remove Ads & Buy developer a coffee".localized()], ["Reset Table".localized()], ["Help".localized(), "Contact Us".localized()], [""]]
+  var settingsArray = [["Remove Ads & Buy developer a cup of coffee ☕️".localized()], ["Reset Table".localized()], ["Help".localized(), "Contact Us".localized()], [""]]
   var settingsTitleArray = ["Remove Ads".localized(), "Reset Table".localized(), "Contact".localized(), "Version".localized()]
   
   var productIDs: [String] = ["adRemoval"]
@@ -37,7 +37,7 @@ class SettingsViewController: UIViewController {
     let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
     if purchased {
       bannerView.isHidden = true
-      settingsArray[0] = ["Thanks for the purchase ❤️"]
+      settingsArray[0] = ["Thanks for the purchase ❤️".localized()]
       viewBottomConstraintForBanner.constant = 0
     }else {
       bannerView.adUnitID = Key.adUnitID
@@ -55,7 +55,7 @@ class SettingsViewController: UIViewController {
     let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
     if purchased {
       bannerView.isHidden = true
-      settingsArray[0] = ["Thanks for the purchase ❤️"]
+      settingsArray[0] = ["Thanks for the purchase ❤️".localized()]
       viewBottomConstraintForBanner.constant = 0
     }else {
       bannerView.adUnitID = Key.adUnitID
@@ -102,8 +102,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
       //removeAds
       let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
       if !purchased {
-        let purchaseAlertController = UIAlertController(title: "Are you sure?".localized(), message: "By pressing the purchase button, you will be purchasing USD$0.99 to remove ads", preferredStyle: .alert)
-        let purchase = UIAlertAction(title: "Purchase", style: .default) { (_) in
+        let purchaseAlertController = UIAlertController(title: "Are you sure?".localized(), message: "By pressing the purchase button, you will be paying USD$0.99".localized(), preferredStyle: .alert)
+        let purchase = UIAlertAction(title: "Purchase".localized(), style: .default) { (_) in
           print("purchase button pressed")
           let payment = SKPayment(product: self.productsArray.first as! SKProduct)
           SKPaymentQueue.default().add(payment)
