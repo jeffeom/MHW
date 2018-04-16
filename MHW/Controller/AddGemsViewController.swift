@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 class AddGemsViewController: UIViewController {
   @IBOutlet weak var firstGemContentShadowView: UIView!
@@ -20,6 +21,7 @@ class AddGemsViewController: UIViewController {
   @IBOutlet weak var firstGemButton: UIButton!
   @IBOutlet weak var secondGemButton: UIButton!
   @IBOutlet weak var thirdGemButton: UIButton!
+  @IBOutlet weak var bannerView: GADBannerView!
   
   static let identifier = "addGemsVC"
   let hangulSystem = YKHangul()
@@ -59,6 +61,9 @@ class AddGemsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Add Gems".localized()
+    bannerView.adUnitID = Key.adUnitID
+    bannerView.rootViewController = self
+    bannerView.load(GADRequest())
     appearance()
     fetchGemssFromJSON()
     currentGemSelected = 0

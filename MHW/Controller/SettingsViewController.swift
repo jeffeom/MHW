@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SafariServices
+import GoogleMobileAds
 
 protocol ResetDelegate: class {
   func resetPressed()
@@ -16,6 +17,7 @@ protocol ResetDelegate: class {
 
 class SettingsViewController: UIViewController {
   static let identifier = "settingsVC"
+  @IBOutlet weak var bannerView: GADBannerView!
   var settingsArray = [["Reset Table".localized()], ["Help".localized(), "Contact Us".localized()], [""]]
   var settingsTitleArray = ["Reset Table".localized(), "Contact".localized(), "Version".localized()]
   
@@ -24,6 +26,9 @@ class SettingsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Settings".localized()
+    bannerView.adUnitID = Key.adUnitID
+    bannerView.rootViewController = self
+    bannerView.load(GADRequest())
     if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
       settingsArray[2] = [version]
     }

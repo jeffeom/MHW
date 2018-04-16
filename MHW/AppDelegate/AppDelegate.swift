@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    GADMobileAds.configure(withApplicationID: "YOUR_ADMOB_APP_ID")
+    GADMobileAds.configure(withApplicationID: Key.admobID)
     return true
   }
 

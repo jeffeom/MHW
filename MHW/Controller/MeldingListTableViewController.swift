@@ -9,9 +9,11 @@
 import UIKit
 import CoreData
 import Localize_Swift
+import GoogleMobileAds
 
 class MeldingListTableViewController: UIViewController {
   @IBOutlet weak var meldingListCollectionView: UICollectionView!
+  @IBOutlet weak var bannerView: GADBannerView!
   var currentStatus: CurrentStatus = CurrentStatus(currentRow: nil, currentOrderList: .notSet)
   var gemLists: [GemList] = []
   var orderLists: [OrderList] = []
@@ -20,9 +22,12 @@ class MeldingListTableViewController: UIViewController {
   var gemEditSection: Int?
   var savedArray = SavedArray(context: PersistenceService.context)
   var selectedIndexPath: IndexPath?
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    bannerView.adUnitID = Key.adUnitID
+    bannerView.rootViewController = self
+    bannerView.load(GADRequest())
     meldingListCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(-10, 0, -10, -10)
     meldingListCollectionView.reloadData()
     let savedArrayFetchRequest: NSFetchRequest<SavedArray> = SavedArray.fetchRequest()

@@ -8,6 +8,7 @@
 
 import UIKit
 import MessageUI
+import GoogleMobileAds
 
 class ContactUsViewController: UIViewController {
   static let identifier = "contactUsVC"
@@ -16,9 +17,14 @@ class ContactUsViewController: UIViewController {
   @IBOutlet weak var helpTitleText: UILabel!
   @IBOutlet weak var helpAttributedText: UILabel!
   @IBOutlet weak var feelFreeText: UILabel!
+  @IBOutlet weak var bannerView: GADBannerView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Contact Us".localized()
+    bannerView.adUnitID = Key.adUnitID
+    bannerView.rootViewController = self
+    bannerView.load(GADRequest())
     helpTitleText.text = "Help & Support".localized()
     helpAttributedText.text = "If you have any questions or concerns about the app contact us at: mhworldapp@gmail.com"
     let currentLang = UserDefaults.standard.array(forKey: "AppleLanguages")?.first as? String
