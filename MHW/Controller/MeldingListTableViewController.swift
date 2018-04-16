@@ -29,7 +29,10 @@ class MeldingListTableViewController: UIViewController {
     let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
     if purchased {
       bannerView.isHidden = true
+      viewBottomConstraintForBanner.constant = 0
     }else {
+      bannerView.isHidden = false
+      viewBottomConstraintForBanner.constant = 50
       bannerView.adUnitID = Key.adUnitID
       bannerView.rootViewController = self
       bannerView.load(GADRequest())

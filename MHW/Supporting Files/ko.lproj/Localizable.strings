@@ -51,9 +51,15 @@
 
 "Successfully deleted all data" = "모든 데이터를 삭제했습니다.";
 
+"Successfully Restored the purchase" = "구매를 성공적으로 복원했습니다.";
+
 "Thanks for the purchase ❤️" = "구매해 주셔서 감사합니다 ❤️";
 
 "This row cannot be set as a current row.\n\nTry setting the order first, then try again." = "현재 행으로 설정 할수 없습니다. Order을 먼저 설정 한 다음 다시 시도하십시오.";
+
+"Transaction completed successfully." = "구매 완료";
+
+"Transaction Failed" = "구매 실패";
 
 "Try again" = "다시 시도하십시오";
 

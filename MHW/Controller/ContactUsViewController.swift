@@ -22,9 +22,15 @@ class ContactUsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Contact Us".localized()
-    bannerView.adUnitID = Key.adUnitID
-    bannerView.rootViewController = self
-    bannerView.load(GADRequest())
+    let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
+    if purchased {
+      bannerView.isHidden = true
+    }else {
+      bannerView.isHidden = false
+      bannerView.adUnitID = Key.adUnitID
+      bannerView.rootViewController = self
+      bannerView.load(GADRequest())
+    }
     helpTitleText.text = "Help & Support".localized()
     helpAttributedText.text = "If you have any questions or concerns about the app contact us at: mhworldapp@gmail.com"
     let currentLang = UserDefaults.standard.array(forKey: "AppleLanguages")?.first as? String

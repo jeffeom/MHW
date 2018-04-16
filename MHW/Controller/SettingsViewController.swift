@@ -40,6 +40,8 @@ class SettingsViewController: UIViewController {
       settingsArray[0] = ["Thanks for the purchase ❤️".localized()]
       viewBottomConstraintForBanner.constant = 0
     }else {
+      bannerView.isHidden = false
+      viewBottomConstraintForBanner.constant = 50
       bannerView.adUnitID = Key.adUnitID
       bannerView.rootViewController = self
       bannerView.load(GADRequest())
@@ -68,6 +70,11 @@ class SettingsViewController: UIViewController {
     }
     requestProductInfo()
     SKPaymentQueue.default().add(self)
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    SKPaymentQueue.default().remove(self)
   }
 }
 
@@ -109,6 +116,15 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
           let payment = SKPayment(product: self.productsArray.first as! SKProduct)
           SKPaymentQueue.default().add(payment)
           self.transactionInProgress = true
+          let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+          
+          let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
+          loadingIndicator.hidesWhenStopped = true
+          loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+          loadingIndicator.startAnimating();
+          
+          alert.view.addSubview(loadingIndicator)
+          self.present(alert, animated: true, completion: nil)
         }
         let cancel = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: nil)
         purchaseAlertController.addAction(purchase)
@@ -173,18 +189,31 @@ extension SettingsViewController: SKProductsRequestDelegate, SKPaymentTransactio
     for transaction in transactions {
       switch transaction.transactionState {
       case .purchased:
-        print("Transaction completed successfully.")
+        dismiss(animated: false, completion: nil)
+        let alertController = UIAlertController(title: "", message: "Transaction completed successfully.".localized(), preferredStyle: .alert)
+        self.present(alertController, animated: true, completion: {
+          UserDefaults.standard.set(true, forKey: "purchasedAdsRemoval")
+        })
+        let when = DispatchTime.now() + 2
+        DispatchQueue.main.asyncAfter(deadline: when){
+          alertController.dismiss(animated: true, completion: nil)
+        }
         SKPaymentQueue.default().finishTransaction(transaction)
         transactionInProgress = false
-        UserDefaults.standard.set(true, forKey: "purchasedAdsRemoval")
         bannerView.isHidden = true
         viewBottomConstraintForBanner.constant = 0
       case .failed:
-        print("Transaction Failed")
+        dismiss(animated: false, completion: nil)
+        let alertController = UIAlertController(title: "", message: "Transaction Failed".localized(), preferredStyle: .alert)
+        self.present(alertController, animated: true, completion: nil)
+        let when = DispatchTime.now() + 2
+        DispatchQueue.main.asyncAfter(deadline: when){
+          alertController.dismiss(animated: true, completion: nil)
+        }
         SKPaymentQueue.default().finishTransaction(transaction)
         transactionInProgress = false
       case .restored:
-        let alertController = UIAlertController(title: "", message: "Successfully Restored", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "", message: "Successfully Restored the purchase".localized(), preferredStyle: .alert)
         self.present(alertController, animated: true, completion: {
           UserDefaults.standard.set(true, forKey: "purchasedAdsRemoval")
         })
