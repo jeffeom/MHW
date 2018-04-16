@@ -22,6 +22,7 @@ class AddGemsViewController: UIViewController {
   @IBOutlet weak var thirdGemButton: UIButton!
   
   static let identifier = "addGemsVC"
+  let hangulSystem = YKHangul()
   
   var gemsArray: [String] = []
   var alphabetDict: [String: [String]] = [:]
@@ -130,7 +131,11 @@ extension AddGemsViewController {
           for aGemDict in gemDictArray {
             let gem = aGemDict["name"] as! String
             gemsArray.append(gem)
-            let initialLetter = String(gem.uppercased().first ?? " ".first!)
+            var initialLetter = String(gem.uppercased().first ?? " ".first!)
+            let currentLang = UserDefaults.standard.array(forKey: "AppleLanguages")?.first as? String
+            if (currentLang?.contains("ko") ?? false) {
+              initialLetter = hangulSystem.getStringConsonant(string: String(gem.first ?? " ".first!), consonantType: .Initial)
+            }
             var letterArray = alphabetDict[initialLetter] ?? [String]()
             letterArray.append(gem)
             alphabetDict[initialLetter] = letterArray
