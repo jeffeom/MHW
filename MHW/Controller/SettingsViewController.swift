@@ -85,7 +85,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     cell.textLabel?.text = settingsArray[indexPath.section][indexPath.row]
     cell.textLabel?.font = UIFont(name: "Avenir-Medium", size: 17.0)
     cell.selectionStyle = .none
-    
+    cell.textLabel?.adjustsFontSizeToFitWidth = true
+    cell.textLabel?.minimumScaleFactor = 0.5
     if indexPath.section == 1 {
       cell.textLabel?.textColor = UIColor(red: 255/255, green: 85/255, blue: 85/255, alpha: 1.0)
     }
