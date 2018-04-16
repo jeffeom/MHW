@@ -147,7 +147,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tH-O6-sYX">
                                                             <rect key="frame" x="320" y="-4.5" width="30" height="40"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                                            <state key="normal" title="⚙︎"/>
+                                                            <state key="normal" title="⚙︎">
+                                                                <color key="titleColor" red="0.26274509800000001" green="0.23921568630000001" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
                                                             <connections>
                                                                 <action selector="pressedSetting:" destination="yHJ-TM-V7T" eventType="touchUpInside" id="jUH-2T-mCT"/>
                                                             </connections>
@@ -298,10 +300,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="p4o-Qc-Sa2">
-                        <nil key="title"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="QL0-fB-zsg"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="2BL-Ss-pcD">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eMc-hf-Kyy">
-                                <rect key="frame" x="16" y="7" width="30" height="30"/>
+                                <rect key="frame" x="16" y="2" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="menu"/>
                                 <connections>
@@ -323,10 +325,15 @@
                                 <constraint firstItem="7eA-rl-bzd" firstAttribute="leading" secondItem="qiV-Zh-vI8" secondAttribute="leading" id="kH7-Po-pjh"/>
                             </constraints>
                         </view>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1W7-Bl-qY3">
-                            <connections>
-                                <segue destination="zZ6-Fm-NW7" kind="show" id="PVz-u5-Glv"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="cZK-wP-YHf">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J8U-Sc-pTM">
+                                <rect key="frame" x="319" y="2" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="addButton"/>
+                                <connections>
+                                    <segue destination="zZ6-Fm-NW7" kind="show" id="8In-r4-Qa3"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -383,7 +390,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TdQ-AE-iOm"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="OIc-Vg-8Ex"/>
+                    <navigationItem key="navigationItem" title="Settings" id="OIc-Vg-8Ex">
+                        <barButtonItem key="backBarButtonItem" title=" " id="qla-rS-N27"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yyG-Bd-zZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -868,6 +877,7 @@
                         <viewLayoutGuide key="safeArea" id="HCB-m7-rQY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Gems" id="PBw-Lj-372">
+                        <barButtonItem key="backBarButtonItem" title=" " id="s1y-f0-rFd"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="LZo-we-kFL">
                             <connections>
                                 <action selector="pressedDoneButton:" destination="zZ6-Fm-NW7" id="xNY-FJ-FEo"/>
@@ -912,6 +922,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="addButton" width="24" height="24"/>
         <image name="menu" width="24" height="24"/>
         <image name="splitJewel" width="24" height="24"/>
     </resources>

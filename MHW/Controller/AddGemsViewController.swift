@@ -164,7 +164,7 @@ extension AddGemsViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = UITableViewCell(style: .default, reuseIdentifier: "gemCell")
-    cell.textLabel?.font = UIFont(name: "OpenSans-Regular", size: 18)
+    cell.textLabel?.font = UIFont(name: "Avenir", size: 18)
     cell.textLabel?.textColor = UIColor(red: 67/255, green: 61/255, blue: 63/255, alpha: 1.0)
     cell.textLabel?.text = alphabetDict[sortedKeysInDict[indexPath.section]]?[indexPath.row]
     cell.selectionStyle = .none

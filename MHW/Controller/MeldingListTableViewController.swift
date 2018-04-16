@@ -74,6 +74,7 @@ class MeldingListTableViewController: UIViewController {
       }
       PersistenceService.saveContext()
       meldingListCollectionView.reloadData()
+      meldingListCollectionView.scrollToItem(at: IndexPath(item: 0, section: gemLists.count - 1), at: .top, animated: true)
     }else if let gemToReplace = gemToReplace, let gemEditSection = gemEditSection {
       gemLists.remove(at: gemEditSection)
       gemLists.insert(gemToReplace, at: gemEditSection)
