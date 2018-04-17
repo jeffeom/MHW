@@ -52,15 +52,17 @@ class MeldingListTableViewController: UIViewController {
       }
       if !savedArrays.isEmpty {
         savedArray = savedArrays[0]
-        guard let gemLists = savedArray.gemLists, let orderLists = savedArray.orders else { return }
-        self.gemLists = Array(gemLists) as! [GemList]
-        let orders = Array(orderLists) as! [Order]
+        self.gemLists = Array(savedArray.gemLists ?? []) as! [GemList]
+        let orders = Array(savedArray.orders ?? []) as! [Order]
         self.orderLists =  orders.compactMap({ OrderList.from(string: $0.number!) })
         if orderLists.count == 0 {
           currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: .notSet)
         }else {
           currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: self.orderLists[Int(savedArray.currentRow)])
         }
+        meldingListCollectionView.reloadData()
+      }else {
+        savedArray = SavedArray(context: PersistenceService.context)
         meldingListCollectionView.reloadData()
       }
     }catch {
@@ -76,28 +78,32 @@ class MeldingListTableViewController: UIViewController {
       viewBottomConstraintForBanner.constant = 0
     }
     if let gemListToAdd = gemListToAdd {
-      gemLists.append(gemListToAdd)
-      gemListToAdd.savedArray = SavedArray(context: PersistenceService.context)
       if savedArray.gemLists == nil {
         savedArray.gemLists = NSOrderedSet(array: [])
         savedArray.addToGemLists(gemListToAdd)
       }else {
         savedArray.addToGemLists(gemListToAdd)
       }
+      gemLists.append(gemListToAdd)
+      if gemListToAdd.savedArray == nil {
+        gemListToAdd.savedArray = SavedArray(context: PersistenceService.context)
+      }
+
+      let theOrder = Order(context: PersistenceService.context)
+      if savedArray.orders == nil {
+        savedArray.orders = NSOrderedSet(array: [])
+        savedArray.addToOrders(theOrder)
+      }else {
+        savedArray.addToOrders(theOrder)
+      }
       if orderLists.isEmpty {
         orderLists.append(.order1_1)
-        let theOrder = Order(context: PersistenceService.context)
         theOrder.number = OrderList.order1_1.text()
-        theOrder.savedArray = SavedArray(context: PersistenceService.context)
-        if savedArray.orders == nil {
-          savedArray.orders = NSOrderedSet(array: [])
-          savedArray.addToOrders(theOrder)
-        }else {
-          savedArray.addToOrders(theOrder)
+        if theOrder.savedArray == nil {
+          theOrder.savedArray = SavedArray(context: PersistenceService.context)
         }
       }else {
         orderLists.append((orderLists.last?.next())!)
-        let theOrder = Order(context: PersistenceService.context)
         theOrder.number = orderLists.last?.text()
         savedArray.addToOrders(theOrder)
       }
@@ -261,20 +267,12 @@ extension MeldingListTableViewController: ResetDelegate {
   }
   
   func deleteAllData(){
-    let managedContext = PersistenceService.persistentContainer.viewContext
-    let deleteGemList = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "GemList"))
-    let deleteOrder = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "Order"))
-    let deleteSavedArray = NSBatchDeleteRequest(fetchRequest: NSFetchRequest<NSFetchRequestResult>(entityName: "SavedArray"))
-    do {
-      try managedContext.execute(deleteGemList)
-      try managedContext.execute(deleteOrder)
-      try managedContext.execute(deleteSavedArray)
-      managedContext.reset()
-      PersistenceService.saveContext()
+    let count = (savedArray.gemLists?.count ?? 0)
+    for _ in 0..<count {
+      savedArray.removeFromGemLists(at: 0)
+      savedArray.removeFromOrders(at: 0)
     }
-    catch {
-      print(error)
-    }
+    PersistenceService.saveContext()
   }
 }
 
@@ -334,6 +332,7 @@ extension MeldingListTableViewController: UICollectionViewDelegate, UICollection
     }else {
       view.currentRowLabel.isHidden = true
     }
+    guard !orderLists.isEmpty else { return view }
     view.orderNumberLabel.text = orderLists[indexPath.section].text()
     return view
   }
