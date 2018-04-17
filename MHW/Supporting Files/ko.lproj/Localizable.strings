@@ -49,6 +49,8 @@
 
 "Reset?" = "재시작 하시겠습니까?";
 
+"Saving..." = "저장중...";
+
 "Settings" = "설정";
 
 "Successfully deleted all data" = "모든 데이터를 삭제했습니다.";

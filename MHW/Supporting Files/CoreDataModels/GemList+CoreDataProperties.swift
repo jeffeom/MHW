@@ -1,9 +1,8 @@
 //
 //  GemList+CoreDataProperties.swift
-//  MHW
+//  
 //
-//  Created by Jeff Eom on 2018-04-12.
-//  Copyright © 2018 Jeff Eom. All rights reserved.
+//  Created by Jeff Eom on 2018-04-16.
 //
 //
 
@@ -20,5 +19,6 @@ extension GemList {
     @NSManaged public var firstGem: String?
     @NSManaged public var secondGem: String?
     @NSManaged public var thirdGem: String?
+    @NSManaged public var savedArray: SavedArray?
 
 }

@@ -1,9 +1,8 @@
 //
 //  Order+CoreDataProperties.swift
-//  MHW
+//  
 //
-//  Created by Jeff Eom on 2018-04-12.
-//  Copyright © 2018 Jeff Eom. All rights reserved.
+//  Created by Jeff Eom on 2018-04-16.
 //
 //
 
@@ -18,5 +17,6 @@ extension Order {
     }
 
     @NSManaged public var number: String?
+    @NSManaged public var savedArray: SavedArray?
 
 }

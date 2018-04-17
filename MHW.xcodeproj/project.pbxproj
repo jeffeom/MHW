@@ -25,10 +25,6 @@
 		40551149208332A00040719B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40551148208332A00040719B /* SettingsViewController.swift */; };
 		4093B9D820807A0B00C52B25 /* SavedArray+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D220807A0B00C52B25 /* SavedArray+CoreDataClass.swift */; };
 		4093B9D920807A0B00C52B25 /* SavedArray+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D320807A0B00C52B25 /* SavedArray+CoreDataProperties.swift */; };
-		4093B9DA20807A0B00C52B25 /* GemList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D420807A0B00C52B25 /* GemList+CoreDataClass.swift */; };
-		4093B9DB20807A0B00C52B25 /* GemList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D520807A0B00C52B25 /* GemList+CoreDataProperties.swift */; };
-		4093B9DC20807A0B00C52B25 /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D620807A0B00C52B25 /* Order+CoreDataClass.swift */; };
-		4093B9DD20807A0B00C52B25 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D720807A0B00C52B25 /* Order+CoreDataProperties.swift */; };
 		409E9B0A207D8EC30079BD20 /* MHW.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 409E9B08207D8EC30079BD20 /* MHW.xcdatamodeld */; };
 		409E9B14207D903A0079BD20 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E9B13207D903A0079BD20 /* PersistenceService.swift */; };
 		40BC1BF220840ED000617C76 /* gem_en.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1BF120840ECF00617C76 /* gem_en.json */; };
@@ -39,6 +35,10 @@
 		40BC1C13208443BC00617C76 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BC1C12208443BC00617C76 /* StoreKit.framework */; };
 		40BC1C1E208466A600617C76 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1C1D208466A600617C76 /* Info.plist */; };
 		40BC1C212084674A00617C76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1C1F2084674A00617C76 /* InfoPlist.strings */; };
+		40BC1C422085BECA00617C76 /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C3E2085BECA00617C76 /* Order+CoreDataClass.swift */; };
+		40BC1C432085BECA00617C76 /* GemList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C3F2085BECA00617C76 /* GemList+CoreDataProperties.swift */; };
+		40BC1C442085BECA00617C76 /* GemList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C402085BECA00617C76 /* GemList+CoreDataClass.swift */; };
+		40BC1C452085BECA00617C76 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C412085BECA00617C76 /* Order+CoreDataProperties.swift */; };
 		40E970722083F189002EFABE /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E970712083F189002EFABE /* ContactUsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,10 +62,6 @@
 		40551148208332A00040719B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4093B9D220807A0B00C52B25 /* SavedArray+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedArray+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4093B9D320807A0B00C52B25 /* SavedArray+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedArray+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		4093B9D420807A0B00C52B25 /* GemList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GemList+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4093B9D520807A0B00C52B25 /* GemList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GemList+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		4093B9D620807A0B00C52B25 /* Order+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataClass.swift"; sourceTree = "<group>"; };
-		4093B9D720807A0B00C52B25 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		409E9B09207D8EC30079BD20 /* MHW.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MHW.xcdatamodel; sourceTree = "<group>"; };
 		409E9B13207D903A0079BD20 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		40BC1BF120840ECF00617C76 /* gem_en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = gem_en.json; path = ../../gem_en.json; sourceTree = "<group>"; };
@@ -81,6 +77,10 @@
 		40BC1C202084674A00617C76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		40BC1C222084674E00617C76 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		40BC1C232084690100617C76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		40BC1C3E2085BECA00617C76 /* Order+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataClass.swift"; sourceTree = "<group>"; };
+		40BC1C3F2085BECA00617C76 /* GemList+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GemList+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		40BC1C402085BECA00617C76 /* GemList+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GemList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		40BC1C412085BECA00617C76 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		40E970712083F189002EFABE /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		93B2F4D93A79D2B9870F1AAF /* Pods-MHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHW/Pods-MHW.debug.xcconfig"; sourceTree = "<group>"; };
 		DCE9C4F121951F0F6EC0401B /* Pods-MHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHW/Pods-MHW.release.xcconfig"; sourceTree = "<group>"; };
@@ -210,12 +210,12 @@
 		4093B9DE20808C7200C52B25 /* CoreDataModels */ = {
 			isa = PBXGroup;
 			children = (
+				40BC1C402085BECA00617C76 /* GemList+CoreDataClass.swift */,
+				40BC1C3F2085BECA00617C76 /* GemList+CoreDataProperties.swift */,
+				40BC1C3E2085BECA00617C76 /* Order+CoreDataClass.swift */,
+				40BC1C412085BECA00617C76 /* Order+CoreDataProperties.swift */,
 				4093B9D220807A0B00C52B25 /* SavedArray+CoreDataClass.swift */,
 				4093B9D320807A0B00C52B25 /* SavedArray+CoreDataProperties.swift */,
-				4093B9D420807A0B00C52B25 /* GemList+CoreDataClass.swift */,
-				4093B9D520807A0B00C52B25 /* GemList+CoreDataProperties.swift */,
-				4093B9D620807A0B00C52B25 /* Order+CoreDataClass.swift */,
-				4093B9D720807A0B00C52B25 /* Order+CoreDataProperties.swift */,
 			);
 			path = CoreDataModels;
 			sourceTree = "<group>";
@@ -384,7 +384,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				405076D2207CB52E0004651B /* MeldingListTableViewController.swift in Sources */,
-				4093B9DB20807A0B00C52B25 /* GemList+CoreDataProperties.swift in Sources */,
 				405076FE207CD5340004651B /* CurrentStatus.swift in Sources */,
 				405076E7207CD30A0004651B /* UIViewController+RoundShadowView.swift in Sources */,
 				40BC1C0F20843C7900617C76 /* YKHangul.swift in Sources */,
@@ -392,19 +391,20 @@
 				405076F2207CD48B0004651B /* MeldingTitleView.swift in Sources */,
 				405076D0207CB52E0004651B /* AppDelegate.swift in Sources */,
 				409E9B0A207D8EC30079BD20 /* MHW.xcdatamodeld in Sources */,
+				40BC1C422085BECA00617C76 /* Order+CoreDataClass.swift in Sources */,
 				40507702207D794F0004651B /* AddGemsViewController.swift in Sources */,
 				405076F6207CD4BD0004651B /* PopupSetupViewController.swift in Sources */,
 				4093B9D820807A0B00C52B25 /* SavedArray+CoreDataClass.swift in Sources */,
 				4093B9D920807A0B00C52B25 /* SavedArray+CoreDataProperties.swift in Sources */,
+				40BC1C432085BECA00617C76 /* GemList+CoreDataProperties.swift in Sources */,
 				405076F0207CD46C0004651B /* MeldingCell.swift in Sources */,
+				40BC1C442085BECA00617C76 /* GemList+CoreDataClass.swift in Sources */,
+				40BC1C452085BECA00617C76 /* Order+CoreDataProperties.swift in Sources */,
 				409E9B14207D903A0079BD20 /* PersistenceService.swift in Sources */,
 				405076E5207CD2590004651B /* UIButton+BorderedButton.swift in Sources */,
 				40551149208332A00040719B /* SettingsViewController.swift in Sources */,
-				4093B9DD20807A0B00C52B25 /* Order+CoreDataProperties.swift in Sources */,
 				40BC1C1120843FC700617C76 /* Key.swift in Sources */,
 				405076FA207CD5130004651B /* Gem.swift in Sources */,
-				4093B9DC20807A0B00C52B25 /* Order+CoreDataClass.swift in Sources */,
-				4093B9DA20807A0B00C52B25 /* GemList+CoreDataClass.swift in Sources */,
 				40E970722083F189002EFABE /* ContactUsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

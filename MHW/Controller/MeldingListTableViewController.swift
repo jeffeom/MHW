@@ -77,19 +77,30 @@ class MeldingListTableViewController: UIViewController {
     }
     if let gemListToAdd = gemListToAdd {
       gemLists.append(gemListToAdd)
-      savedArray.addToGemLists(gemListToAdd)
+      gemListToAdd.savedArray = SavedArray(context: PersistenceService.context)
+      if savedArray.gemLists == nil {
+        savedArray.gemLists = NSOrderedSet(array: [])
+        savedArray.addToGemLists(gemListToAdd)
+      }else {
+        savedArray.addToGemLists(gemListToAdd)
+      }
       if orderLists.isEmpty {
         orderLists.append(.order1_1)
         let theOrder = Order(context: PersistenceService.context)
         theOrder.number = OrderList.order1_1.text()
-        savedArray.addToOrders(theOrder)
+        theOrder.savedArray = SavedArray(context: PersistenceService.context)
+        if savedArray.orders == nil {
+          savedArray.orders = NSOrderedSet(array: [])
+          savedArray.addToOrders(theOrder)
+        }else {
+          savedArray.addToOrders(theOrder)
+        }
       }else {
         orderLists.append((orderLists.last?.next())!)
         let theOrder = Order(context: PersistenceService.context)
         theOrder.number = orderLists.last?.text()
         savedArray.addToOrders(theOrder)
       }
-      self.gemListToAdd = nil
       if gemLists.count == 1 {
         self.currentStatus = CurrentStatus(currentRow: 0, currentOrderList: .order1_1)
         savedArray.currentRow = 0
@@ -97,6 +108,7 @@ class MeldingListTableViewController: UIViewController {
       PersistenceService.saveContext()
       meldingListCollectionView.reloadData()
       meldingListCollectionView.scrollToItem(at: IndexPath(item: 0, section: gemLists.count - 1), at: .top, animated: true)
+      self.gemListToAdd = nil
     }else if let gemToReplace = gemToReplace, let gemEditSection = gemEditSection {
       gemLists.remove(at: gemEditSection)
       gemLists.insert(gemToReplace, at: gemEditSection)
@@ -186,16 +198,7 @@ extension MeldingListTableViewController: ResetDelegate {
         }
         currentStatus.currentRow = currentRow + 1
       case .order2_1:
-        if orderLists[currentRow - 1] == .order2_1 {
-          guard currentRow + 1 < orderLists.count else {
-            let alertController = UIAlertController(title: "Try again".localized(), message: "Need to add in more lists.".localized(), preferredStyle: .alert)
-            let defaultAction = UIAlertAction(title: "OK".localized(), style: .default, handler: nil)
-            alertController.addAction(defaultAction)
-            present(alertController, animated: true, completion: nil)
-            return
-          }
-          currentStatus.currentRow = currentRow + 1
-        }else {
+        if currentRow == 0 {
           guard currentRow + 2 < orderLists.count else {
             let alertController = UIAlertController(title: "Try again".localized(), message: "Need to add in more lists.".localized(), preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK".localized(), style: .default, handler: nil)
@@ -204,6 +207,26 @@ extension MeldingListTableViewController: ResetDelegate {
             return
           }
           currentStatus.currentRow = currentRow + 2
+        }else {
+          if orderLists[currentRow - 1] == .order2_1 {
+            guard currentRow + 1 < orderLists.count else {
+              let alertController = UIAlertController(title: "Try again".localized(), message: "Need to add in more lists.".localized(), preferredStyle: .alert)
+              let defaultAction = UIAlertAction(title: "OK".localized(), style: .default, handler: nil)
+              alertController.addAction(defaultAction)
+              present(alertController, animated: true, completion: nil)
+              return
+            }
+            currentStatus.currentRow = currentRow + 1
+          }else {
+            guard currentRow + 2 < orderLists.count else {
+              let alertController = UIAlertController(title: "Try again".localized(), message: "Need to add in more lists.".localized(), preferredStyle: .alert)
+              let defaultAction = UIAlertAction(title: "OK".localized(), style: .default, handler: nil)
+              alertController.addAction(defaultAction)
+              present(alertController, animated: true, completion: nil)
+              return
+            }
+            currentStatus.currentRow = currentRow + 2
+          }
         }
       case .order2_2:
         guard currentRow + 1 < orderLists.count else {
@@ -247,6 +270,7 @@ extension MeldingListTableViewController: ResetDelegate {
       try managedContext.execute(deleteOrder)
       try managedContext.execute(deleteSavedArray)
       managedContext.reset()
+      PersistenceService.saveContext()
     }
     catch {
       print(error)
