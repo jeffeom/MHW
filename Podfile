@@ -7,4 +7,5 @@ target 'MHW' do
   # Pods for MHW
   pod 'Localize-Swift'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'SwiftyStoreKit'
 end

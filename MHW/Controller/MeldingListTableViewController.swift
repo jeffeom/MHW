@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import Localize_Swift
 import GoogleMobileAds
+import SwiftyStoreKit
 
 class MeldingListTableViewController: UIViewController {
   @IBOutlet weak var meldingListCollectionView: UICollectionView!
@@ -26,6 +27,7 @@ class MeldingListTableViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    verifyPurchase()
     let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
     if purchased {
       bannerView.isHidden = true
@@ -128,6 +130,29 @@ class MeldingListTableViewController: UIViewController {
 
 //MARK: Setup
 extension MeldingListTableViewController {
+  func verifyPurchase() {
+    let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: Key.sharedSecret)
+    SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+      switch result {
+      case .success(let receipt):
+        let productId = "adRemoval"
+        // Verify the purchase of Consumable or NonConsumable
+        let purchaseResult = SwiftyStoreKit.verifyPurchase(
+          productId: productId,
+          inReceipt: receipt)
+        
+        switch purchaseResult {
+        case .purchased(let receiptItem):
+          print("\(productId) is purchased: \(receiptItem)")
+        case .notPurchased:
+          print("The user has never purchased \(productId)")
+        }
+      case .error(let error):
+        print("Receipt verification failed: \(error)")
+      }
+    }
+  }
+  
   func changeLabelToMelded() {
     // 1.1 1.2 M 2 2 1.1 1.2 2 2
     if let currentRow = currentStatus.currentRow {

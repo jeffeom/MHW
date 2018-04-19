@@ -5,7 +5,7 @@
 
 "By pressing delete button, it will delete every data in the table and cannot be recovered." = "삭제 버튼을 누르면 테이블의 모든 데이터가 삭제되어 복구 할 수 없습니다.";
 
-"By pressing the purchase button, you will be paying USD$0.99" = "구매 버튼을 누르면 광고를 삭제하기 위해 USD $0.99를 사용하게됩니다.";
+"By pressing the purchase button, you will be paying USD$1.99" = "구매 버튼을 누르면 광고를 삭제하기 위해 USD $1.99를 사용하게됩니다.";
 
 "Cancel" = "취소";
 
@@ -31,6 +31,8 @@
 
 "Need to add in more lists." = "더 많은 장식주 리스트가 필요 합니다.";
 
+"Nothing to Restore" = "복원 할 구매 항목이 없습니다.";
+
 "OK" = "확인";
 
 "Please try again." = "다시 시도하십시오";
@@ -48,6 +50,12 @@
 "Reset Table" = "테이블 재설정";
 
 "Reset?" = "재시작 하시겠습니까?";
+
+"Restore Failed" = "구매 복원 실패";
+
+"Restore in-app Purchases" = "구매 목록 복원";
+
+"Restore Success" = "구매 복원 완료";
 
 "Saving..." = "저장중...";
 
