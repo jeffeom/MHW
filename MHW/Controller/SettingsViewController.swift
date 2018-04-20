@@ -32,6 +32,7 @@ class SettingsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     title = "Settings".localized()
+    automaticallyAdjustsScrollViewInsets = false
     retrieveProductInfo()
     let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
     if purchased {

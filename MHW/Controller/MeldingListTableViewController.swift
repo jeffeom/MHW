@@ -27,6 +27,7 @@ class MeldingListTableViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    automaticallyAdjustsScrollViewInsets = false
     verifyPurchase()
     let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
     if purchased {
