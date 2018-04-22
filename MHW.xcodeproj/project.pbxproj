@@ -19,7 +19,6 @@
 		405076F2207CD48B0004651B /* MeldingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076F1207CD48B0004651B /* MeldingTitleView.swift */; };
 		405076F6207CD4BD0004651B /* PopupSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076F5207CD4BD0004651B /* PopupSetupViewController.swift */; };
 		405076F8207CD5030004651B /* OrderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076F7207CD5030004651B /* OrderList.swift */; };
-		405076FA207CD5130004651B /* Gem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076F9207CD5130004651B /* Gem.swift */; };
 		405076FE207CD5340004651B /* CurrentStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405076FD207CD5340004651B /* CurrentStatus.swift */; };
 		40507702207D794F0004651B /* AddGemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40507701207D794F0004651B /* AddGemsViewController.swift */; };
 		40551149208332A00040719B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40551148208332A00040719B /* SettingsViewController.swift */; };
@@ -40,6 +39,11 @@
 		40BC1C442085BECA00617C76 /* GemList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C402085BECA00617C76 /* GemList+CoreDataClass.swift */; };
 		40BC1C452085BECA00617C76 /* Order+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C412085BECA00617C76 /* Order+CoreDataProperties.swift */; };
 		40E970722083F189002EFABE /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E970712083F189002EFABE /* ContactUsViewController.swift */; };
+		40EE8ADB208C4BBF005B6E21 /* HighlightGemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE8ADA208C4BBF005B6E21 /* HighlightGemsViewController.swift */; };
+		40EE8AE9208C58A3005B6E21 /* Gem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE8AE5208C58A2005B6E21 /* Gem+CoreDataProperties.swift */; };
+		40EE8AEA208C58A3005B6E21 /* Gem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE8AE6208C58A2005B6E21 /* Gem+CoreDataClass.swift */; };
+		40EE8AEE208C5B15005B6E21 /* GemHighlightList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE8AEC208C5B15005B6E21 /* GemHighlightList+CoreDataClass.swift */; };
+		40EE8AEF208C5B15005B6E21 /* GemHighlightList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40EE8AED208C5B15005B6E21 /* GemHighlightList+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +60,6 @@
 		405076F1207CD48B0004651B /* MeldingTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeldingTitleView.swift; sourceTree = "<group>"; };
 		405076F5207CD4BD0004651B /* PopupSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupSetupViewController.swift; sourceTree = "<group>"; };
 		405076F7207CD5030004651B /* OrderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderList.swift; sourceTree = "<group>"; };
-		405076F9207CD5130004651B /* Gem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gem.swift; sourceTree = "<group>"; };
 		405076FD207CD5340004651B /* CurrentStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentStatus.swift; sourceTree = "<group>"; };
 		40507701207D794F0004651B /* AddGemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGemsViewController.swift; sourceTree = "<group>"; };
 		40551148208332A00040719B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +85,11 @@
 		40BC1C402085BECA00617C76 /* GemList+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "GemList+CoreDataClass.swift"; sourceTree = "<group>"; };
 		40BC1C412085BECA00617C76 /* Order+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Order+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		40E970712083F189002EFABE /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		40EE8ADA208C4BBF005B6E21 /* HighlightGemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighlightGemsViewController.swift; sourceTree = "<group>"; };
+		40EE8AE5208C58A2005B6E21 /* Gem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Gem+CoreDataProperties.swift"; path = "/Users/jeffeom/Documents/MHW/MHW/Supporting Files/CoreDataModels/Gem+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		40EE8AE6208C58A2005B6E21 /* Gem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Gem+CoreDataClass.swift"; path = "/Users/jeffeom/Documents/MHW/MHW/Supporting Files/CoreDataModels/Gem+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		40EE8AEC208C5B15005B6E21 /* GemHighlightList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GemHighlightList+CoreDataClass.swift"; path = "/Users/jeffeom/Documents/MHW/MHW/Supporting Files/CoreDataModels/GemHighlightList+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		40EE8AED208C5B15005B6E21 /* GemHighlightList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "GemHighlightList+CoreDataProperties.swift"; path = "/Users/jeffeom/Documents/MHW/MHW/Supporting Files/CoreDataModels/GemHighlightList+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		93B2F4D93A79D2B9870F1AAF /* Pods-MHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHW/Pods-MHW.debug.xcconfig"; sourceTree = "<group>"; };
 		DCE9C4F121951F0F6EC0401B /* Pods-MHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHW/Pods-MHW.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,6 +184,7 @@
 				40507701207D794F0004651B /* AddGemsViewController.swift */,
 				40551148208332A00040719B /* SettingsViewController.swift */,
 				40E970712083F189002EFABE /* ContactUsViewController.swift */,
+				40EE8ADA208C4BBF005B6E21 /* HighlightGemsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -184,7 +193,6 @@
 			isa = PBXGroup;
 			children = (
 				405076F7207CD5030004651B /* OrderList.swift */,
-				405076F9207CD5130004651B /* Gem.swift */,
 				405076FD207CD5340004651B /* CurrentStatus.swift */,
 			);
 			path = Model;
@@ -216,6 +224,10 @@
 				40BC1C412085BECA00617C76 /* Order+CoreDataProperties.swift */,
 				4093B9D220807A0B00C52B25 /* SavedArray+CoreDataClass.swift */,
 				4093B9D320807A0B00C52B25 /* SavedArray+CoreDataProperties.swift */,
+				40EE8AEC208C5B15005B6E21 /* GemHighlightList+CoreDataClass.swift */,
+				40EE8AED208C5B15005B6E21 /* GemHighlightList+CoreDataProperties.swift */,
+				40EE8AE6208C58A2005B6E21 /* Gem+CoreDataClass.swift */,
+				40EE8AE5208C58A2005B6E21 /* Gem+CoreDataProperties.swift */,
 			);
 			path = CoreDataModels;
 			sourceTree = "<group>";
@@ -386,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				405076D2207CB52E0004651B /* MeldingListTableViewController.swift in Sources */,
+				40EE8AEA208C58A3005B6E21 /* Gem+CoreDataClass.swift in Sources */,
 				405076FE207CD5340004651B /* CurrentStatus.swift in Sources */,
 				405076E7207CD30A0004651B /* UIViewController+RoundShadowView.swift in Sources */,
 				40BC1C0F20843C7900617C76 /* YKHangul.swift in Sources */,
@@ -397,16 +410,19 @@
 				40507702207D794F0004651B /* AddGemsViewController.swift in Sources */,
 				405076F6207CD4BD0004651B /* PopupSetupViewController.swift in Sources */,
 				4093B9D820807A0B00C52B25 /* SavedArray+CoreDataClass.swift in Sources */,
+				40EE8AE9208C58A3005B6E21 /* Gem+CoreDataProperties.swift in Sources */,
 				4093B9D920807A0B00C52B25 /* SavedArray+CoreDataProperties.swift in Sources */,
+				40EE8ADB208C4BBF005B6E21 /* HighlightGemsViewController.swift in Sources */,
 				40BC1C432085BECA00617C76 /* GemList+CoreDataProperties.swift in Sources */,
 				405076F0207CD46C0004651B /* MeldingCell.swift in Sources */,
+				40EE8AEE208C5B15005B6E21 /* GemHighlightList+CoreDataClass.swift in Sources */,
 				40BC1C442085BECA00617C76 /* GemList+CoreDataClass.swift in Sources */,
 				40BC1C452085BECA00617C76 /* Order+CoreDataProperties.swift in Sources */,
 				409E9B14207D903A0079BD20 /* PersistenceService.swift in Sources */,
 				405076E5207CD2590004651B /* UIButton+BorderedButton.swift in Sources */,
 				40551149208332A00040719B /* SettingsViewController.swift in Sources */,
 				40BC1C1120843FC700617C76 /* Key.swift in Sources */,
-				405076FA207CD5130004651B /* Gem.swift in Sources */,
+				40EE8AEF208C5B15005B6E21 /* GemHighlightList+CoreDataProperties.swift in Sources */,
 				40E970722083F189002EFABE /* ContactUsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,6 +22,8 @@ class MeldingListTableViewController: UIViewController {
   var gemListToAdd: GemList?
   var gemToReplace: GemList?
   var gemEditSection: Int?
+  var gemsToHighlight: [String] = []
+  var gemHighlightList = GemHighlightList(context: PersistenceService.context)
   var savedArray = SavedArray(context: PersistenceService.context)
   var selectedIndexPath: IndexPath?
   
@@ -42,35 +44,8 @@ class MeldingListTableViewController: UIViewController {
     }
     meldingListCollectionView.scrollIndicatorInsets = UIEdgeInsetsMake(-10, 0, -10, -10)
     meldingListCollectionView.reloadData()
-    let savedArrayFetchRequest: NSFetchRequest<SavedArray> = SavedArray.fetchRequest()
-    do {
-      var savedArrays = try PersistenceService.context.fetch(savedArrayFetchRequest)
-      if savedArrays.count > 1 {
-        let arraysToErase = savedArrays.filter({ $0.gemLists?.count == 0 })
-        for anArrayToErase in arraysToErase {
-          PersistenceService.context.delete(anArrayToErase as NSManagedObject)
-          savedArrays.remove(at: savedArrays.index(of: anArrayToErase)!)
-          PersistenceService.saveContext()
-        }
-      }
-      if !savedArrays.isEmpty {
-        savedArray = savedArrays[0]
-        self.gemLists = Array(savedArray.gemLists ?? []) as! [GemList]
-        let orders = Array(savedArray.orders ?? []) as! [Order]
-        self.orderLists =  orders.compactMap({ OrderList.from(string: $0.number!) })
-        if orderLists.count == 0 {
-          currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: .notSet)
-        }else {
-          currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: self.orderLists[Int(savedArray.currentRow)])
-        }
-        meldingListCollectionView.reloadData()
-      }else {
-        savedArray = SavedArray(context: PersistenceService.context)
-        meldingListCollectionView.reloadData()
-      }
-    }catch {
-      print(error.localizedDescription)
-    }
+    fetchSavedArray()
+    fetchGemHighlightList()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -80,6 +55,7 @@ class MeldingListTableViewController: UIViewController {
       bannerView.isHidden = true
       viewBottomConstraintForBanner.constant = 0
     }
+    fetchGemHighlightList()
     if let gemListToAdd = gemListToAdd {
       if savedArray.gemLists == nil {
         savedArray.gemLists = NSOrderedSet(array: [])
@@ -131,6 +107,64 @@ class MeldingListTableViewController: UIViewController {
 
 //MARK: Setup
 extension MeldingListTableViewController {
+  func fetchSavedArray() {
+    let savedArrayFetchRequest: NSFetchRequest<SavedArray> = SavedArray.fetchRequest()
+    do {
+      var savedArrays = try PersistenceService.context.fetch(savedArrayFetchRequest)
+      if savedArrays.count > 1 {
+        let arraysToErase = savedArrays.filter({ $0.gemLists?.count == 0 })
+        for anArrayToErase in arraysToErase {
+          PersistenceService.context.delete(anArrayToErase as NSManagedObject)
+          savedArrays.remove(at: savedArrays.index(of: anArrayToErase)!)
+          PersistenceService.saveContext()
+        }
+      }
+      if !savedArrays.isEmpty {
+        savedArray = savedArrays[0]
+        self.gemLists = Array(savedArray.gemLists ?? []) as! [GemList]
+        let orders = Array(savedArray.orders ?? []) as! [Order]
+        self.orderLists =  orders.compactMap({ OrderList.from(string: $0.number!) })
+        if orderLists.count == 0 {
+          currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: .notSet)
+        }else {
+          currentStatus = CurrentStatus(currentRow: Int(savedArray.currentRow), currentOrderList: self.orderLists[Int(savedArray.currentRow)])
+        }
+        meldingListCollectionView.reloadData()
+      }else {
+        savedArray = SavedArray(context: PersistenceService.context)
+        meldingListCollectionView.reloadData()
+      }
+    }catch {
+      print(error.localizedDescription)
+    }
+  }
+  
+  func fetchGemHighlightList() {
+    let gemHighlightListFetchRequest: NSFetchRequest<GemHighlightList> = GemHighlightList.fetchRequest()
+    do {
+      var gemHighlightLists = try PersistenceService.context.fetch(gemHighlightListFetchRequest)
+      if gemHighlightLists.count > 1 {
+        let arraysToErase = gemHighlightLists.filter({ $0.gems?.count == 0 })
+        for anArrayToErase in arraysToErase {
+          PersistenceService.context.delete(anArrayToErase as NSManagedObject)
+          gemHighlightLists.remove(at: gemHighlightLists.index(of: anArrayToErase)!)
+          PersistenceService.saveContext()
+        }
+      }
+      if !gemHighlightLists.isEmpty {
+        gemHighlightList = gemHighlightLists[0]
+        let gemsArray = Array(gemHighlightList.gems ?? []) as! [Gem]
+        self.gemsToHighlight = gemsArray.compactMap({ $0.name ?? "" })
+        meldingListCollectionView.reloadData()
+      }else {
+        gemHighlightList = GemHighlightList(context: PersistenceService.context)
+        meldingListCollectionView.reloadData()
+      }
+    }catch {
+      print(error.localizedDescription)
+    }
+  }
+  
   func verifyPurchase() {
     let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: Key.sharedSecret)
     SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
@@ -323,27 +357,15 @@ extension MeldingListTableViewController: UICollectionViewDelegate, UICollection
     default:
       break
     }
+    let currentLang = UserDefaults.standard.array(forKey: "AppleLanguages")?.first as? String
+    if (currentLang?.contains("ko") ?? false) {
+      cell.cellIsSelected = gemsToHighlight.contains(cell.gemLabel.text ?? "")
+    }else {
+      cell.cellIsSelected = gemsToHighlight.contains((cell.gemLabel.text ?? "") + " Jewel")
+
+    }
     return cell
   }
-  
-//  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//    let cell = collectionView.cellForItem(at: indexPath) as! MeldingCell
-//    if cell.cellIsSelected {
-//      cell.isSelected = false
-//      cell.cellIsSelected = false
-//    }else {
-//      cell.isSelected = true
-//      cell.cellIsSelected = true
-//    }
-//    cell.layoutIfNeeded()
-//  }
-//  
-//  func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//    let cell = collectionView.cellForItem(at: indexPath) as! MeldingCell
-//    cell.isSelected = false
-//    cell.cellIsSelected = false
-//    cell.layoutIfNeeded()
-//  }
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     return CGSize(width: collectionView.bounds.width / 3 - 10, height: 50)

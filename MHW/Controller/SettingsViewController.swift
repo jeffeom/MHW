@@ -22,8 +22,8 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var bannerView: GADBannerView!
   @IBOutlet weak var viewBottomConstraintForBanner: NSLayoutConstraint!
   
-  var settingsArray = [["Remove Ads & Buy developer a cup of coffee ☕️".localized(), "Restore in-app Purchases".localized()], ["Reset Table".localized()], ["Help".localized(), "Contact Us".localized()], [""]]
-  var settingsTitleArray = ["Remove Ads".localized(), "Reset Table".localized(), "Contact".localized(), "Version".localized()]
+  var settingsArray = [["Remove Ads & Buy developer a cup of coffee ☕️".localized(), "Restore in-app Purchases".localized()], ["Reset Table".localized()], ["Set gems to highlight".localized()], ["Help".localized(), "Contact Us".localized()], [""]]
+  var settingsTitleArray = ["Remove Ads".localized(), "Reset Table".localized(), "Gem Setting".localized(), "Contact".localized(), "Version".localized()]
   
   var productIDs: [String] = ["adRemoval"]
   
@@ -47,7 +47,7 @@ class SettingsViewController: UIViewController {
       bannerView.load(GADRequest())
     }
     if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-      settingsArray[3] = [version]
+      settingsArray[settingsArray.count - 1] = [version]
       settingTableView.reloadData()
     }
   }
@@ -65,7 +65,7 @@ class SettingsViewController: UIViewController {
       bannerView.load(GADRequest())
     }
     if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-      settingsArray[3] = [version]
+      settingsArray[settingsArray.count - 1] = [version]
       settingTableView.reloadData()
     }
   }
@@ -154,6 +154,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
       alertController.addAction(deleteAction)
       self.present(alertController, animated: true, completion: nil)
     case 2:
+      let highlightGemsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: HighlightGemsViewController.identifier) as! HighlightGemsViewController
+      navigationController?.pushViewController(highlightGemsVC, animated: true)
+    case 3:
       if indexPath.item == 0 {
         //HELP
         let currentLang = UserDefaults.standard.array(forKey: "AppleLanguages")?.first as? String

@@ -61,3 +61,12 @@
 
 /* Class = "UILabel"; text = "Please feel free to contact us at mhworldapp@gmail.com for bug reports or feature suggestions. Will be happy to reply back and solve it as soon as possible."; ObjectID = "pi1-3b-jhd"; */
 "pi1-3b-jhd.text" = "";
+
+/* Class = "UINavigationItem"; title = "Highlight Gems"; ObjectID = "DAN-zs-RGY"; */
+"DAN-zs-RGY.title" = "";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "ZtU-m0-Qv8"; */
+"ZtU-m0-Qv8.normalTitle" = "저장";
+
+/* Class = "UIButton"; normalTitle = "RESET"; ObjectID = "678-7T-CoH"; */
+"678-7T-CoH.normalTitle" = "";

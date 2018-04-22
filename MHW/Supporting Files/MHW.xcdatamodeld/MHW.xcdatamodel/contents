@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Gem" representedClassName="Gem" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="gemHighlightList" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GemHighlightList" inverseName="gems" inverseEntity="GemHighlightList" syncable="YES"/>
+    </entity>
+    <entity name="GemHighlightList" representedClassName="GemHighlightList" syncable="YES">
+        <relationship name="gems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Gem" inverseName="gemHighlightList" inverseEntity="Gem" syncable="YES"/>
+    </entity>
     <entity name="GemList" representedClassName="GemList" syncable="YES">
         <attribute name="firstGem" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="secondGem" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,5 +26,7 @@
         <element name="GemList" positionX="-1638" positionY="5184" width="128" height="103"/>
         <element name="Order" positionX="-1377" positionY="5292" width="128" height="73"/>
         <element name="SavedArray" positionX="-1442" positionY="5166" width="128" height="88"/>
+        <element name="GemHighlightList" positionX="-1503" positionY="5247" width="128" height="60"/>
+        <element name="Gem" positionX="-1494" positionY="5256" width="128" height="75"/>
     </elements>
 </model>
