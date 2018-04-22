@@ -26,6 +26,7 @@ class HighlightGemsViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    automaticallyAdjustsScrollViewInsets = false
     title = "Highlight Gems".localized()
     let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
     if purchased {
@@ -67,7 +68,7 @@ class HighlightGemsViewController: UIViewController {
 
 //MARK: IBActions
 extension HighlightGemsViewController {
-  @IBAction func pressedSaveButton(_ sender: UIButton) {
+  @IBAction func pressedSaveButton(_ sender: UIBarButtonItem) {
     self.deleteAllData()
     for i in 0..<gemsToHighlight.count {
       let gem = Gem(context: PersistenceService.context)

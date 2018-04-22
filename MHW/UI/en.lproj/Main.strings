@@ -65,8 +65,8 @@
 /* Class = "UINavigationItem"; title = "Highlight Gems"; ObjectID = "DAN-zs-RGY"; */
 "DAN-zs-RGY.title" = "";
 
-/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "ZtU-m0-Qv8"; */
-"ZtU-m0-Qv8.normalTitle" = "";
-
 /* Class = "UIButton"; normalTitle = "RESET"; ObjectID = "678-7T-CoH"; */
 "678-7T-CoH.normalTitle" = "";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "fAA-2P-0NZ"; */
+"fAA-2P-0NZ.title" = "";

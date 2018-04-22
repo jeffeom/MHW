@@ -685,15 +685,10 @@
                         <viewLayoutGuide key="safeArea" id="2wl-aN-TFw"/>
                     </view>
                     <navigationItem key="navigationItem" title="Highlight Gems" id="DAN-zs-RGY">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="JQ0-kt-igR">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZtU-m0-Qv8">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="pressedSaveButton:" destination="KqF-64-QFr" eventType="touchUpInside" id="TOc-ex-kxN"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="fAA-2P-0NZ">
+                            <connections>
+                                <action selector="pressedSaveButton:" destination="KqF-64-QFr" id="vGs-rZ-aS6"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
