@@ -32,7 +32,6 @@
 		40BC1C0F20843C7900617C76 /* YKHangul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C0E20843C7900617C76 /* YKHangul.swift */; };
 		40BC1C1120843FC700617C76 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C1020843FC700617C76 /* Key.swift */; };
 		40BC1C13208443BC00617C76 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BC1C12208443BC00617C76 /* StoreKit.framework */; };
-		40BC1C1E208466A600617C76 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1C1D208466A600617C76 /* Info.plist */; };
 		40BC1C212084674A00617C76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1C1F2084674A00617C76 /* InfoPlist.strings */; };
 		40BC1C422085BECA00617C76 /* Order+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C3E2085BECA00617C76 /* Order+CoreDataClass.swift */; };
 		40BC1C432085BECA00617C76 /* GemList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BC1C3F2085BECA00617C76 /* GemList+CoreDataProperties.swift */; };
@@ -316,7 +315,6 @@
 				40BC1BF220840ED000617C76 /* gem_en.json in Resources */,
 				405076DA207CB5300004651B /* Assets.xcassets in Resources */,
 				405076D5207CB52E0004651B /* Main.storyboard in Resources */,
-				40BC1C1E208466A600617C76 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
