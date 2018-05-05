@@ -22,8 +22,8 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var bannerView: GADBannerView!
   @IBOutlet weak var viewBottomConstraintForBanner: NSLayoutConstraint!
   
-  var settingsArray = [["Remove Ads & Buy developer a cup of coffee ☕️".localized(), "Restore in-app Purchases".localized()], ["Reset Table".localized(), "Set list of gems to highlight".localized()], ["Help".localized(), "Contact Us".localized()], [""]]
-  var settingsTitleArray = ["Remove Ads".localized(), "Table Settings".localized(), "Gem Setting".localized(), "Contact".localized(), "Version".localized()]
+  var settingsArray = [["Remove Ads & Buy developer a cup of coffee ☕️".localized(), "Restore in-app Purchases".localized()], ["Reset Table".localized()], ["Set list of gems to highlight".localized()], ["Help".localized(), "Contact Us".localized()], [""]]
+  var settingsTitleArray = ["Remove Ads".localized(), "Table Settings".localized(), "Gem Settings".localized(), "Contact".localized(), "Version".localized()]
   
   var productIDs: [String] = ["adRemoval"]
   
