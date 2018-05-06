@@ -135,33 +135,31 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         self.present(alert, animated: true, completion: nil)
       }
     case 1:
-      if indexPath.item == 0 {
-        //RESET TABLE
-        // the alert view
-        let alertController = UIAlertController(title: "Are you sure?".localized(), message: "By pressing delete button, it will delete every data in the table and cannot be recovered.".localized(), preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
-          alertController.dismiss(animated: true, completion: nil)
-        })
-        let deleteAction = UIAlertAction(title: "Delete".localized(), style: .destructive) { _ in
-          let alert = UIAlertController(title: "", message: "Successfully deleted all data".localized(), preferredStyle: .alert)
-          self.present(alert, animated: true, completion: nil)
-          let when = DispatchTime.now() + 2
-          DispatchQueue.main.asyncAfter(deadline: when){
-            alert.dismiss(animated: true, completion: {
-              self.delegate?.resetPressed()
-              self.navigationController?.popViewController(animated: true)
-            })
-          }
+      //RESET TABLE
+      // the alert view
+      let alertController = UIAlertController(title: "Are you sure?".localized(), message: "By pressing delete button, it will delete every data in the table and cannot be recovered.".localized(), preferredStyle: .alert)
+      let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
+        alertController.dismiss(animated: true, completion: nil)
+      })
+      let deleteAction = UIAlertAction(title: "Delete".localized(), style: .destructive) { _ in
+        let alert = UIAlertController(title: "", message: "Successfully deleted all data".localized(), preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        let when = DispatchTime.now() + 2
+        DispatchQueue.main.asyncAfter(deadline: when){
+          alert.dismiss(animated: true, completion: {
+            self.delegate?.resetPressed()
+            self.navigationController?.popViewController(animated: true)
+          })
         }
-        alertController.addAction(cancelAction)
-        alertController.addAction(deleteAction)
-        self.present(alertController, animated: true, completion: nil)
-      }else {
-        //HIGHLIGHT SETUP
-        let highlightGemsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: HighlightGemsViewController.identifier) as! HighlightGemsViewController
-        navigationController?.pushViewController(highlightGemsVC, animated: true)
       }
+      alertController.addAction(cancelAction)
+      alertController.addAction(deleteAction)
+      self.present(alertController, animated: true, completion: nil)
     case 2:
+      //HIGHLIGHT SETUP
+      let highlightGemsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: HighlightGemsViewController.identifier) as! HighlightGemsViewController
+      navigationController?.pushViewController(highlightGemsVC, animated: true)
+    case 3:
       if indexPath.item == 0 {
         //HELP
         let currentLang = UserDefaults.standard.array(forKey: "AppleLanguages")?.first as? String

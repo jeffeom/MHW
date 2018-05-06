@@ -72,4 +72,7 @@
 "fAA-2P-0NZ.title" = "저장";
 
 /* Class = "UIButton"; normalTitle = "Delete this row"; ObjectID = "QgP-x2-L5N"; */
-"QgP-x2-L5N.normalTitle" = "";
+"QgP-x2-L5N.normalTitle" = "행 삭제";
+
+/* Class = "UIButton"; normalTitle = "Scroll To Current Row"; ObjectID = "KSh-Os-7P8"; */
+"KSh-Os-7P8.normalTitle" = "현재 행으로 이동";

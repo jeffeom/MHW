@@ -16,6 +16,9 @@ class MeldingListTableViewController: UIViewController {
   @IBOutlet weak var meldingListCollectionView: UICollectionView!
   @IBOutlet weak var bannerView: GADBannerView!
   @IBOutlet weak var viewBottomConstraintForBanner: NSLayoutConstraint!
+  @IBOutlet weak var optionView: UIView!
+  @IBOutlet weak var optionViewHeightConstraint: NSLayoutConstraint!
+  @IBOutlet weak var scrollToCurrentRowButton: UIButton!
   var currentStatus: CurrentStatus = CurrentStatus(currentRow: nil, currentOrderList: .notSet)
   var gemLists: [GemList] = []
   var orderLists: [OrderList] = []
@@ -100,6 +103,12 @@ class MeldingListTableViewController: UIViewController {
       savedArray.replaceGemLists(at: gemEditSection, with: gemToReplace)
       PersistenceService.saveContext()
       meldingListCollectionView.reloadData()
+    }
+    let currentRowVisible = meldingListCollectionView.indexPathsForVisibleItems.contains(IndexPath(item: 0, section: currentStatus.currentRow!))
+    if !currentRowVisible {
+      showScrollToButton()
+    }else {
+      hideScrollToButton()
     }
   }
 }
@@ -334,6 +343,15 @@ extension MeldingListTableViewController: ResetDelegate {
     }
     PersistenceService.saveContext()
   }
+  
+  @IBAction func pressedToScrollToCurrentRow(_ sender: UIButton) {
+    meldingListCollectionView.scrollToItem(at: IndexPath(item: 0, section: currentStatus.currentRow!), at: .top, animated: true)
+    if let attributes =  meldingListCollectionView.layoutAttributesForSupplementaryElement(ofKind: UICollectionElementKindSectionHeader, at: IndexPath(item: 0, section: currentStatus.currentRow!)) {
+      let topOfHeader = CGPoint(x: 0, y: attributes.frame.origin.y - meldingListCollectionView.contentInset.top)
+      meldingListCollectionView.setContentOffset(topOfHeader, animated:true)
+    }
+    hideScrollToButton()
+  }
 }
 
 //MARK: CVDelegate & Datasource
@@ -501,6 +519,7 @@ extension MeldingListTableViewController: MeldingTitleViewDelgate, CellPopupDele
     PersistenceService.saveContext()
     meldingListCollectionView.reloadData()
     selectedIndexPath = nil
+    hideScrollToButton()
   }
   
   func pressedToDeleteRow() {
@@ -512,19 +531,56 @@ extension MeldingListTableViewController: MeldingTitleViewDelgate, CellPopupDele
       present(alertController, animated: true, completion: nil)
       return
     }
-    if currentStatus.currentRow == orderLists.count - 1 {
-      savedArray.currentRow = savedArray.currentRow - 1
-      currentStatus.currentRow = Int(savedArray.currentRow)
+    let alertController = UIAlertController(title: "Are you sure?".localized(), message: "By pressing delete button, it will delete the selected row and cannot be recovered.".localized(), preferredStyle: .alert)
+    let cancelAction = UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: { _ in
+      alertController.dismiss(animated: true, completion: nil)
+    })
+    let deleteAction = UIAlertAction(title: "Delete".localized(), style: .destructive) { _ in
+      if self.currentStatus.currentRow == self.orderLists.count - 1 {
+        self.savedArray.currentRow = self.savedArray.currentRow - 1
+        self.currentStatus.currentRow = Int(self.savedArray.currentRow)
+      }
+      self.savedArray.removeFromOrders(at: self.orderLists.count - 1)
+      self.savedArray.removeFromGemLists(at: section)
+      self.orderLists.removeLast()
+      self.gemLists.remove(at: section)
+      self.meldingListCollectionView.deleteSections([section])
+      for i in section..<self.orderLists.count {
+        self.meldingListCollectionView.reloadSections([i])
+      }
+      PersistenceService.saveContext()
+      self.selectedIndexPath = nil
     }
-    savedArray.removeFromOrders(at: orderLists.count - 1)
-    savedArray.removeFromGemLists(at: section)
-    orderLists.removeLast()
-    gemLists.remove(at: section)
-    meldingListCollectionView.deleteSections([section])
-    for i in section..<orderLists.count {
-      meldingListCollectionView.reloadSections([i])
+    alertController.addAction(cancelAction)
+    alertController.addAction(deleteAction)
+    self.present(alertController, animated: true, completion: nil)
+  }
+}
+
+//MARK: UIScrollViewDelegate
+extension MeldingListTableViewController: UIScrollViewDelegate {
+  fileprivate func hideScrollToButton() {
+    scrollToCurrentRowButton.isHidden = true
+    optionViewHeightConstraint.constant = 70
+    UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+      self.optionView.layoutIfNeeded()
+    })
+  }
+  
+  fileprivate func showScrollToButton() {
+    scrollToCurrentRowButton.isHidden = false
+    optionViewHeightConstraint.constant = 120
+    UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+      self.optionView.layoutIfNeeded()
+    })
+  }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let currentRowVisible = meldingListCollectionView.indexPathsForVisibleItems.contains(IndexPath(item: 0, section: currentStatus.currentRow!))
+    if !currentRowVisible {
+      showScrollToButton()
+    }else {
+      hideScrollToButton()
     }
-    PersistenceService.saveContext()
-    selectedIndexPath = nil
   }
 }
