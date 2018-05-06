@@ -13,6 +13,7 @@ protocol CellPopupDelegate: class {
   func pressed1_2()
   func pressed2()
   func pressedCurrentRow()
+  func pressedToDeleteRow()
 }
 
 class PopupSetupViewController: UIViewController {
@@ -65,6 +66,11 @@ class PopupSetupViewController: UIViewController {
     dismiss(animated: true, completion: nil)
   }
   
+  @IBAction func pressedToSetAsCurrentRow(_ sender: UIButton) {
+    dismiss(animated: true, completion: nil)
+    delegate?.pressedCurrentRow()
+  }
+  
   @IBAction func pressedToEditRow(_ sender: UIButton) {
     guard let navController = self.presentingViewController as? UINavigationController else { return }
     dismiss(animated: true, completion: {
@@ -75,8 +81,8 @@ class PopupSetupViewController: UIViewController {
     })
   }
   
-  @IBAction func pressedToSetAsCurrentRow(_ sender: UIButton) {
+  @IBAction func pressedToDeleteRow(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
-    delegate?.pressedCurrentRow()
+    delegate?.pressedToDeleteRow()
   }
 }

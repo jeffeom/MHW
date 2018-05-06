@@ -502,4 +502,29 @@ extension MeldingListTableViewController: MeldingTitleViewDelgate, CellPopupDele
     meldingListCollectionView.reloadData()
     selectedIndexPath = nil
   }
+  
+  func pressedToDeleteRow() {
+    guard let section = selectedIndexPath?.section else { return }
+    guard section != currentStatus.currentRow else {
+      let alertController = UIAlertController(title: "Try again".localized(), message: "Current row cannot be deleted.\n\nPlease try again".localized(), preferredStyle: .alert)
+      let defaultAction = UIAlertAction(title: "OK".localized(), style: .default, handler: nil)
+      alertController.addAction(defaultAction)
+      present(alertController, animated: true, completion: nil)
+      return
+    }
+    if currentStatus.currentRow == orderLists.count - 1 {
+      savedArray.currentRow = savedArray.currentRow - 1
+      currentStatus.currentRow = Int(savedArray.currentRow)
+    }
+    savedArray.removeFromOrders(at: orderLists.count - 1)
+    savedArray.removeFromGemLists(at: section)
+    orderLists.removeLast()
+    gemLists.remove(at: section)
+    meldingListCollectionView.deleteSections([section])
+    for i in section..<orderLists.count {
+      meldingListCollectionView.reloadSections([i])
+    }
+    PersistenceService.saveContext()
+    selectedIndexPath = nil
+  }
 }

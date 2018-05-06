@@ -70,3 +70,6 @@
 
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "fAA-2P-0NZ"; */
 "fAA-2P-0NZ.title" = "";
+
+/* Class = "UIButton"; normalTitle = "Delete this row"; ObjectID = "QgP-x2-L5N"; */
+"QgP-x2-L5N.normalTitle" = "";
