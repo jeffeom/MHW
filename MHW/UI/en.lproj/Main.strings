@@ -76,3 +76,9 @@
 
 /* Class = "UIButton"; normalTitle = "Scroll To Current Row"; ObjectID = "KSh-Os-7P8"; */
 "KSh-Os-7P8.normalTitle" = "";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "nwk-Si-6O3"; */
+"nwk-Si-6O3.text" = "";
+
+/* Class = "UINavigationItem"; title = "Switch Language"; ObjectID = "zNg-oR-kNV"; */
+"zNg-oR-kNV.title" = "";

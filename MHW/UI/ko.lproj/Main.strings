@@ -60,10 +60,10 @@
 "wde-2o-hpp.text" = "Skip 설정";
 
 /* Class = "UILabel"; text = "Please feel free to contact us at mhworldapp@gmail.com for bug reports or feature suggestions. Will be happy to reply back and solve it as soon as possible."; ObjectID = "pi1-3b-jhd"; */
-"pi1-3b-jhd.text" = "";
+"pi1-3b-jhd.text" = "버그 보고서 나 추천 기능에 대해서는 mhworldapp@gmail.com으로 언제든지 문의하세요. 이메일을 보내 주시면 최대한 빨리 해결해 드리겠습니다.";
 
 /* Class = "UINavigationItem"; title = "Highlight Gems"; ObjectID = "DAN-zs-RGY"; */
-"DAN-zs-RGY.title" = "";
+"DAN-zs-RGY.title" = "강조할 보석 설정";
 
 /* Class = "UIButton"; normalTitle = "RESET"; ObjectID = "678-7T-CoH"; */
 "678-7T-CoH.normalTitle" = "리셋";
@@ -76,3 +76,9 @@
 
 /* Class = "UIButton"; normalTitle = "Scroll To Current Row"; ObjectID = "KSh-Os-7P8"; */
 "KSh-Os-7P8.normalTitle" = "현재 행으로 이동";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "nwk-Si-6O3"; */
+"nwk-Si-6O3.text" = "";
+
+/* Class = "UINavigationItem"; title = "Switch Language"; ObjectID = "zNg-oR-kNV"; */
+"zNg-oR-kNV.title" = "언어 설정";

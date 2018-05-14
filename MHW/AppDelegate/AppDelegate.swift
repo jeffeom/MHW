@@ -32,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
       }
     }
+    if let font = UIFont(name: "Avenir-Medium", size: 17) {
+      UINavigationBar.appearance().titleTextAttributes = [
+        NSAttributedStringKey.font: font]
+    }
     return true
   }
 

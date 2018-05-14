@@ -24,6 +24,7 @@
 		40551149208332A00040719B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40551148208332A00040719B /* SettingsViewController.swift */; };
 		4093B9D820807A0B00C52B25 /* SavedArray+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D220807A0B00C52B25 /* SavedArray+CoreDataClass.swift */; };
 		4093B9D920807A0B00C52B25 /* SavedArray+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4093B9D320807A0B00C52B25 /* SavedArray+CoreDataProperties.swift */; };
+		4096A71020A99B1F007C6315 /* SwitchLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4096A70F20A99B1F007C6315 /* SwitchLanguageViewController.swift */; };
 		409E9B0A207D8EC30079BD20 /* MHW.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 409E9B08207D8EC30079BD20 /* MHW.xcdatamodeld */; };
 		409E9B14207D903A0079BD20 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409E9B13207D903A0079BD20 /* PersistenceService.swift */; };
 		40BC1BF220840ED000617C76 /* gem_en.json in Resources */ = {isa = PBXBuildFile; fileRef = 40BC1BF120840ECF00617C76 /* gem_en.json */; };
@@ -64,6 +65,7 @@
 		40551148208332A00040719B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4093B9D220807A0B00C52B25 /* SavedArray+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedArray+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4093B9D320807A0B00C52B25 /* SavedArray+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedArray+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		4096A70F20A99B1F007C6315 /* SwitchLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchLanguageViewController.swift; sourceTree = "<group>"; };
 		409E9B09207D8EC30079BD20 /* MHW.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MHW.xcdatamodel; sourceTree = "<group>"; };
 		409E9B13207D903A0079BD20 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
 		40BC1BF120840ECF00617C76 /* gem_en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = gem_en.json; path = ../../gem_en.json; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				40551148208332A00040719B /* SettingsViewController.swift */,
 				40E970712083F189002EFABE /* ContactUsViewController.swift */,
 				40EE8ADA208C4BBF005B6E21 /* HighlightGemsViewController.swift */,
+				4096A70F20A99B1F007C6315 /* SwitchLanguageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				405076E7207CD30A0004651B /* UIViewController+RoundShadowView.swift in Sources */,
 				40BC1C0F20843C7900617C76 /* YKHangul.swift in Sources */,
 				405076F8207CD5030004651B /* OrderList.swift in Sources */,
+				4096A71020A99B1F007C6315 /* SwitchLanguageViewController.swift in Sources */,
 				405076F2207CD48B0004651B /* MeldingTitleView.swift in Sources */,
 				405076D0207CB52E0004651B /* AppDelegate.swift in Sources */,
 				409E9B0A207D8EC30079BD20 /* MHW.xcdatamodeld in Sources */,

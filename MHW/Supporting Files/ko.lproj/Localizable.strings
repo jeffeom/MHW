@@ -15,11 +15,13 @@
 
 "Contact Us" = "문의하기";
 
-"Current row cannot be deleted.\n\nPlease try again" = "현재 행은 삭제가 불가능 합니다. 다시 시도하십시오.";
+"Current row cannot be deleted.\n\nPlease try again" = "현재 행은 삭제가 불가능 합니다. 다시 시도해주세요.";
 
 "Delete" = "삭제";
 
 "Do you want to start from the beginning?" = "처음부터 다시 시작 하시겠습니까?";
+
+"English" = "영어";
 
 "Error" = "에러";
 
@@ -33,6 +35,10 @@
 
 "Highlight Gems" = "강조할 보석 설정";
 
+"Korean" = "한글";
+
+"Language Settings" = "언어 설정";
+
 "MELDED" = "연금";
 
 "Missing Order" = "Order가 설정 되어있지 않습니다.";
@@ -43,9 +49,11 @@
 
 "OK" = "확인";
 
-"Please try again." = "다시 시도하십시오";
+"Please restart the app" = "앱을 재시작 하세요";
 
-"Please wait..." = "잠시만 기다려주십시오 ...";
+"Please try again." = "다시 시도하세요";
+
+"Please wait..." = "잠시만 기다려주세요 ...";
 
 "Purchase" = "구매";
 
@@ -79,16 +87,20 @@
 
 "Successfully Restored the purchase" = "구매를 성공적으로 복원했습니다.";
 
+"Switch Language" = "언어 설정";
+
 "Table Settings" = "테이블 설정";
 
 "Thanks for the purchase ❤️" = "구매해 주셔서 감사합니다 ❤️";
 
-"This row cannot be set as a current row.\n\nTry setting the order first, then try again." = "현재 행으로 설정 할수 없습니다. Order을 먼저 설정 한 다음 다시 시도하십시오.";
+"This row cannot be set as a current row.\n\nTry setting the order first, then try again." = "현재 행으로 설정 할수 없습니다. Order을 먼저 설정 한 다음 다시 시도하세요.";
 
 "Transaction completed successfully." = "구매 완료";
 
 "Transaction Failed" = "구매 실패";
 
-"Try again" = "다시 시도하십시오";
+"Try again" = "다시 시도하세요";
 
 "Version" = "버전";
+
+"You need to restart the app to have the app running in the language you just selected." = "설정한 언어로 앱을 이용하시려면 앱을 재시작 하세요.";

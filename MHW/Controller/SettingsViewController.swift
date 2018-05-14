@@ -22,8 +22,8 @@ class SettingsViewController: UIViewController {
   @IBOutlet weak var bannerView: GADBannerView!
   @IBOutlet weak var viewBottomConstraintForBanner: NSLayoutConstraint!
   
-  var settingsArray = [["Remove Ads & Buy developer a cup of coffee ☕️".localized(), "Restore in-app Purchases".localized()], ["Reset Table".localized()], ["Set list of gems to highlight".localized()], ["Help".localized(), "Contact Us".localized()], [""]]
-  var settingsTitleArray = ["Remove Ads".localized(), "Table Settings".localized(), "Gem Settings".localized(), "Contact".localized(), "Version".localized()]
+  var settingsArray = [["Switch Language".localized()],["Remove Ads & Buy developer a cup of coffee ☕️".localized(), "Restore in-app Purchases".localized()], ["Reset Table".localized()], ["Set list of gems to highlight".localized()], ["Help".localized(), "Contact Us".localized()], [""]]
+  var settingsTitleArray = ["Language Settings".localized(), "Remove Ads".localized(), "Table Settings".localized(), "Gem Settings".localized(), "Contact".localized(), "Version".localized()]
   
   var productIDs: [String] = ["adRemoval"]
   
@@ -37,7 +37,8 @@ class SettingsViewController: UIViewController {
     let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
     if purchased {
       bannerView.isHidden = true
-      settingsArray[0] = ["Thanks for the purchase ❤️".localized()]
+      //
+      settingsArray[1] = ["Thanks for the purchase ❤️".localized()]
       viewBottomConstraintForBanner.constant = 0
     }else {
       bannerView.isHidden = false
@@ -57,12 +58,9 @@ class SettingsViewController: UIViewController {
     let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
     if purchased {
       bannerView.isHidden = true
-      settingsArray[0] = ["Thanks for the purchase ❤️".localized()]
+      //
+      settingsArray[1] = ["Thanks for the purchase ❤️".localized()]
       viewBottomConstraintForBanner.constant = 0
-    }else {
-      bannerView.adUnitID = Key.adUnitID
-      bannerView.rootViewController = self
-      bannerView.load(GADRequest())
     }
     if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
       settingsArray[settingsArray.count - 1] = [version]
@@ -87,7 +85,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     cell.selectionStyle = .none
     cell.textLabel?.adjustsFontSizeToFitWidth = true
     cell.textLabel?.minimumScaleFactor = 0.5
-    if indexPath.section == 1 {
+    //
+    if indexPath.section == 2 {
       if indexPath.item == 0 {
         cell.textLabel?.textColor = UIColor(red: 255/255, green: 85/255, blue: 85/255, alpha: 1.0)
       }
@@ -102,6 +101,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch indexPath.section {
     case 0:
+      let switchLanguageVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: SwitchLanguageViewController.identifier) as! SwitchLanguageViewController
+      navigationController?.pushViewController(switchLanguageVC, animated: true)
+    case 1:
       if indexPath.item == 0 {
         //removeAds
         let purchased = UserDefaults.standard.value(forKey: "purchasedAdsRemoval") as? Bool ?? false
@@ -134,7 +136,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         alert.view.addSubview(loadingIndicator)
         self.present(alert, animated: true, completion: nil)
       }
-    case 1:
+    case 2:
       //RESET TABLE
       // the alert view
       let alertController = UIAlertController(title: "Are you sure?".localized(), message: "By pressing delete button, it will delete every data in the table and cannot be recovered.".localized(), preferredStyle: .alert)
@@ -155,11 +157,11 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
       alertController.addAction(cancelAction)
       alertController.addAction(deleteAction)
       self.present(alertController, animated: true, completion: nil)
-    case 2:
+    case 3:
       //HIGHLIGHT SETUP
       let highlightGemsVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: HighlightGemsViewController.identifier) as! HighlightGemsViewController
       navigationController?.pushViewController(highlightGemsVC, animated: true)
-    case 3:
+    case 4:
       if indexPath.item == 0 {
         //HELP
         let currentLang = UserDefaults.standard.array(forKey: "AppleLanguages")?.first as? String

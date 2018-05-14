@@ -104,11 +104,9 @@ class MeldingListTableViewController: UIViewController {
       PersistenceService.saveContext()
       meldingListCollectionView.reloadData()
     }
-    let currentRowVisible = meldingListCollectionView.indexPathsForVisibleItems.contains(IndexPath(item: 0, section: currentStatus.currentRow!))
-    if !currentRowVisible {
-      showScrollToButton()
-    }else {
+    guard let _ = currentStatus.currentRow, gemLists.count != 0 else {
       hideScrollToButton()
+      return
     }
   }
 }
@@ -381,6 +379,18 @@ extension MeldingListTableViewController: UICollectionViewDelegate, UICollection
     }else {
       cell.cellIsSelected = gemsToHighlight.contains((cell.gemLabel.text ?? "") + " Jewel")
 
+    }
+    if indexPath.section == gemLists.count - 1 && indexPath.item == 2 {
+      guard let currentRow = currentStatus.currentRow, gemLists.count != 0 else {
+        hideScrollToButton()
+        return cell
+      }
+      let currentRowVisible = meldingListCollectionView.indexPathsForVisibleItems.contains(IndexPath(item: 0, section: currentRow))
+      if !currentRowVisible {
+        showScrollToButton()
+      }else {
+        hideScrollToButton()
+      }
     }
     return cell
   }

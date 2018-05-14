@@ -1,7 +1,7 @@
 PODS:
   - Google-Mobile-Ads-SDK (7.30.0)
   - Localize-Swift (2.0.0)
-  - SwiftyStoreKit (0.13.1)
+  - SwiftyStoreKit (0.13.2)
 
 DEPENDENCIES:
   - Google-Mobile-Ads-SDK
@@ -11,7 +11,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Google-Mobile-Ads-SDK: 7404f68120ae8682afeb5af001fbf4aad731c78e
   Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
-  SwiftyStoreKit: c36bb7841dd51a485ce5c38abf9e96fba988741f
+  SwiftyStoreKit: b7563505440a68c9d9fa70bc43d8a97015519409
 
 PODFILE CHECKSUM: b181751e17f8ed233615d9709ce6eaebf6c8671f
 
